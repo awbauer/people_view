@@ -28,6 +28,8 @@ https://<nation_slug>.nationbuilder.com/oauth/authorize
 https://<nation_slug>.nationbuilder.com/oauth/token
 ```
 
+[In depth instruction](https://github.com/3dna/people_view/blob/master/doc/authentication.md)
+
 NationBuilder API is known to work with the following clients:
 
 * [oauth2](https://rubygems.org/gems/oauth2) ruby gem
