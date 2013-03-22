@@ -19,6 +19,7 @@ class PagesController < ApplicationController
       e.response
     end
     @status = rsp.status
+    @headers = rsp.headers
 
     begin
       @code = JSON.parse(rsp.body)

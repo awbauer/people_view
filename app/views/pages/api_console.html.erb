@@ -21,6 +21,15 @@
   </div>
 
   <div class="span6">
+    <% if @headers %>
+      <div class="headers">
+        <% @headers.each do |header| %>
+          <div class="header">
+            <%= header %>
+          </div>
+        <% end -%>
+      </div>
+    <% end -%>
     <% if @status %>
       <div class="status">
         <%= @status %>
