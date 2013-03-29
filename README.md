@@ -11,33 +11,33 @@ Installation
 ### Steps:
 1. In order to use this sample application, clone the repository and cd to it:
 
-  ```bash
+  ```
     git clone https://github.com/3dna/people_view
     cd people_view
   ```
 
 2. Once inside, you must install the project's dependencies with bundler:
 
-  ```bash
+  ```
     bundle install
   ```
 
 3. Once the bundling process completes, you need to provide database credentials in config/database.yml
 
-  ```bash
+  ```
     cp config/database.yml.example config/database.yml
     # edit database.yml to match your configuration.  The example file is sufficient to start
   ```
 
 4. Migrate the database you set up:
 
-  ```bash
+  ```
     bundle exec rake db:migrate db:test:prepare
   ```
 
 5. Run the server:
 
-  ```bash
+  ```
     bundle exec script/rails server
   ```
 
