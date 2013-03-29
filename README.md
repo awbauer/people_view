@@ -50,13 +50,15 @@ Usage
 -----
 
 ### Authentication
+
 When you navigate to the sample app root path, you should see an empty page.
+
 1. Click "New Nation" to register a nation with this sample application
-2. Fill in the details of your nation:
-   * give it a meaningful name. ex. Foobar Nation
-   * provide the url, including https protocol. ex. https://foobar.nationbuilder.com/
-   * Provide the client uid and secret key you got from registration of your app
-   * The file input is for a logo, feel free into upload an image
+2. Fill in the details of your nation: \
+   Give it a meaningful name. ex. Foobar Nation \
+   Provide the url, including https protocol. ex. https://foobar.nationbuilder.com/ \
+   Provide the client uid and secret key you got from registration of your app \
+   The file input is for a logo, feel free into upload an image
 3. When you submit the form you should be redirected to the nation selection page.  Select your nation there and it should take you through the authorization process.
 4. Optionally sign into your nation
 5. When you accept the request to use the data, you should be redirected to the people list
