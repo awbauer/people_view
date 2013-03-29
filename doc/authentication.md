@@ -21,14 +21,15 @@ If the user grants access to your request, NationBuilder will redirect back to y
 
 
 ```
-POST https://foobar.nationbuilder.com/login/oauth/access_token?  \
+POST https://foobar.nationbuilder.com/oauth/token  \
+    grant_type=authorization_code&                               \
     client_id=<client_id>&                                       \
     redirect_uri=<redirect_uri>&                                 \
     client_secret=<client_secret>&                               \
     code=<code>
 ```
 
-The response will be:
+The response will include an access token:
 
 ```
   access_token=<access_token>
