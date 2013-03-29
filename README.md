@@ -4,9 +4,9 @@ NationBuilder Sample API Client
 Installation
 -------------
 ### Prerequisites:
-* git
-* ruby
-* bundler
+* [git](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+* [ruby](http://www.ruby-lang.org/en/downloads/)
+* [bundler](http://gembundler.com/)
 
 ### Steps:
 1. In order to use this sample application, clone the repository and cd to it:
