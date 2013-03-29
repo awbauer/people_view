@@ -54,11 +54,17 @@ Usage
 When you navigate to the sample app root path, you should see an empty page.
 
 1. Click "New Nation" to register a nation with this sample application
-2. Fill in the details of your nation:
+2. At this point you will need an application that has a redirect_uri of the host you are using:
+    * Go to an API-whitelisted nation's control panel
+    * Navigate links from Settings > OAuth > New Application
+    * Name this application, for example "People View Local"
+    * Set the Redirect URI to the fully qualified domain name and protocol you are using, with the path "callback", ex. "http://localhost:3000/callback"
+    * Click "Register" and note your client uid and secret key for the next step
+3. Fill in the details of your nation:
     * Give it a meaningful name. ex. Foobar Nation
     * Provide the url, including https protocol. ex. https://foobar.nationbuilder.com/
     * Provide the client uid and secret key you got from registration of your app
     * The file input is for a logo, feel free into upload an image
-3. When you submit the form you should be redirected to the nation selection page.  Select your nation there and it should take you through the authorization process.
-4. Optionally sign into your nation
-5. When you accept the request to use the data, you should be redirected to the people list
+4. When you submit the form you should be redirected to the nation selection page.  Select your nation there and it should take you through the authorization process.
+5. Optionally sign into your nation
+6. When you accept the request to use the data, you should be redirected to the people list
