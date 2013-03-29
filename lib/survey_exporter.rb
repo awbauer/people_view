@@ -6,7 +6,7 @@ class SurveyExporter
   end
 
   def export
-    token.post("/api/v1/surveys", body: parameters.to_json, headers: json_headers)
+    token.post("/api/v1/sites/#{survey.site_slug}/pages/surveys", body: parameters.to_json, headers: json_headers)
   end
 
   private
