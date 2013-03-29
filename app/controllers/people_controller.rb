@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   def index
     @current_page = (params[:page] || 1).to_i
     response = token.get("/api/v1/people", :headers => standard_headers, :params => { page: @current_page })
-    @people = JSON.parse(response.body)["data"].map { |person_data| Person.from_hash(person_data) }
+    @people = JSON.parse(response.body)["results"].map { |person_data| Person.from_hash(person_data) }
   end
 
   def edit
