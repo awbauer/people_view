@@ -1,16 +1,16 @@
 NationBuilder Sample API Client
--------------------------------
+===============================
 
 Please read the [API documentation](https://github.com/3dna/people_view/blob/master/doc/README.md) for more information.
 
 Installation
 -------------
-# Prerequisites:
+### Prerequisites:
 * git
 * ruby
 * bundler
 
-# Steps:
+### Steps:
 * In order to use this sample application, clone the repository and cd to it:
 
 ```bash
