@@ -32,22 +32,24 @@ Then you should get a 200 response with a body like this:
       "slug": "mindsell",
       "status": "published",
       "site_slug": "foobar",
-      "author_id": 5,
       "name": "MindSell",
       "headline": "blogs for the thinking man",
       "title": "MindSell",
       "excerpt": null,
+      "author_id": 5,
+      "external_id": "34598732345",
       "id": 10
     },
     {
       "slug": "cropthought",
       "status": "published",
-      "author_id": 5,
       "site_slug": "foobar",
       "name": "Crop Thought",
       "headline": "Only the cream",
       "title": "Crop Thought - Foobar Softwares",
       "excerpt": null,
+      "author_id": 5,
+      "external_id": null,
       "id": 11
     }
   ]
@@ -73,11 +75,12 @@ Then you should get a 200 response with a body like this:
     "slug": "mindsell",
     "status": "published",
     "site_slug": "foobar",
-    "author_id": 5,
     "name": "MindSell",
     "headline": "blogs for the thinking man",
     "title": "MindSell",
     "excerpt": null,
+    "author_id": 5,
+    "external_id": "34598732345",
     "id": 10
   }
 }
@@ -97,6 +100,7 @@ POST /api/v1/sites/:site_slug/pages/blogs
     * title - Title of the page, shows up as tab name, for example (optional, defaults to the name)
     * headline - Heading on the page (optional, defaults to the name)
     * excerpt - meta attribute for SEO - description (optional)
+    * external_id - the unique identifier for this resource in an external service (optional)
 
 ### Example
 
@@ -127,6 +131,8 @@ You should get a 200 response with a body like this:
     "headline": "My Blog",
     "title": "My Blog - Foobar Softwares",
     "excerpt": null,
+    "author_id": null,
+    "external_id": null,
     "id": 12
   }
 }
@@ -175,6 +181,8 @@ That should update the page to have the new title, and return a response code of
     "headline": "My Page",
     "title": "New Title",
     "excerpt": null,
+    "author_id": null,
+    "external_id": null,
     "id": 12
   }
 }

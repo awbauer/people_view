@@ -31,28 +31,53 @@ Then you should get a 200 response with a body like this:
     {
       "slug": "will_wars",
       "status": "published",
-      "author_id": 5,
       "site_slug": "foobar",
       "name": "Will Wars",
       "headline": "Will Wars",
       "title": "Will Wars - Foobar Softwares",
       "excerpt": null,
+      "author_id": 5,
+      "external_id": null,
       "id": 10,
       "content_before_flip": "<p>Psychopathy is more common than you would expect</p>"
     },
     {
       "slug": "perspective_misalignments",
       "status": "published",
-      "author_id": 5,
       "site_slug": "foobar",
       "name": "Perspective Misalignments",
       "headline": "Perspective Misalignments",
       "title": "Perspective Misalignments - Foobar Softwares",
       "excerpt": null,
+      "author_id": 5,
+      "external_id": null,
       "id": 11,
       "content_before_flip": "<p>Some people just don't see eye to eye</p>"
     }
   ]
+}
+```
+
+Match Endpoint
+--------------
+Map an external service id to a NationBuilder blog post id
+GET /api/v1/sites/:site_slug/pages/blogs/:blog_id/posts/match
+
+### Attributes
+* external_id - the external id
+
+### Example
+I have a wordpress blog that I have imported into NationBuilder via this API, and I want to edit one of the posts that was imported, to which I had attached the external id "wp_1234".  To edit the page I need the NationBuilder id, but I did not write it down.  To overcome this lack of information I can issue a request like this:
+
+```
+GET https://foobar.nationbuilder.com/api/v1/sites/foobar/blogs/13/posts/match?external_id=wp_1234
+```
+
+And get back a response like this:
+
+```json
+{
+  "id": 15
 }
 ```
 
@@ -104,6 +129,7 @@ POST /api/v1/sites/:site_slug/pages/blogs/:blog_id/posts
     * title - Title of the page, shows up as tab name, for example (optional, defaults to the name)
     * headline - Heading on the page (optional, defaults to the name)
     * excerpt - meta attribute for SEO - description (optional)
+    * external_id - the unique identifier for this resource in an external service (optional)
     * content_before_flip - the content of the blog post to be shown on the posts index, typically used as teaser content.  Put the entire blog post content into this field to have it.  (one form of content is required). Content is sanitized before persistence.
     * content_after_flip - content of the blog post to be shown only on the full post page.  The full post page combines the content_before_flip to the content_after_flip
 
