@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129234715) do
+ActiveRecord::Schema.define(:version => 20130411220026) do
 
   create_table "credentials", :force => true do |t|
     t.integer  "nation_id"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "refresh_token"
+    t.datetime "expires_at"
   end
 
   create_table "nations", :force => true do |t|
