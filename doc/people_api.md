@@ -258,3 +258,28 @@ Removes the person with the provided id from the nation.  Takes no parameters, r
 DELETE /api/v1/people/:id
 ```
 
+Register Endpoint
+-----------------
+
+Starts user registration process for the given person.  Specifically sends an account confirmation email.
+
+```
+GET /api/v1/people/:id/register
+```
+
+### Example
+For a person with id 123 on foobar nation
+
+```
+GET https://foobar.nationbuilder.com/api/v1/people/123/register
+```
+
+This should get you an of success or failure like this:
+
+```json
+{
+  "status": "success"
+}
+```
+
+Success means that the account activation email was sent successfully
