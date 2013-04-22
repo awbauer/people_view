@@ -44,7 +44,7 @@ Installation
 Now you should be able to use the application, just navigate to [http://localhost:3000](http://localhost:3000) by default
 
 
-Please read the [API documentation](https://github.com/3dna/people_view/blob/master/doc/README.md) for more information on API usage.
+Please read the [API documentation](http://nationbuilder.com/api_documentation) for more information on API usage.
 
 Usage
 -----
