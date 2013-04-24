@@ -1,35 +1,24 @@
-# Survey Resource
+Surveys API
+===========
 
-## Retreive a list of available Surveys
+Index Endpoint
+--------------
+Retrieve a list of existing surveys
 
-### HTTP Method
+`GET /api/v1/sites/:site_slug/pages/surveys`
 
-`GET`
-
-### HTTP URI
-
-`/api/v1/survey`
-
-### Params
+### Parameters
 
 * `page` - The page number, defaults to 0
 * `per_page` - Number of entries to display, defaults to 10
 
-### Example Request
+### Example
 
 ```
-GET /api/v1/surveys?page=1&per_page=2
+GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/surveys?page=1&per_page=2
 ```
 
-### Request Body
-
-None
-
-### Response Status
-
-`200`
-
-### Response Body
+You will receive a response with status 200 and this data:
 
 ```json
 {
@@ -41,7 +30,7 @@ None
     {
       "id": 1,
       "slug": "survey",
-      "site_slug": "abeforprez",
+      "site_slug": "foobar",
       "name": "Survey",
       "questions": [
         {
@@ -104,20 +93,17 @@ None
 }
 ```
 
-## Create a new survey
+Create Endpoint
+---------------
 
-### HTTP Method
+Creates a survey page with the attributes and questions provided.
 
-`POST`
+`POST /api/v1/sites/:site_slug/pages/surveys`
 
-### HTTP URI
-
-`/api/v1/survey`
-
-### Example Request
+### Example
 
 ```
-POST /api/v1/survey
+POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/surveys
 ```
 
 ### Request Body
@@ -126,7 +112,6 @@ POST /api/v1/survey
 {
   "survey": {
     "slug": "survey",
-    "site_slug": "abeforprez",
     "name": "Survey",
     "questions": [{
       "prompt": "What issue is more important to you?",
@@ -151,36 +136,70 @@ POST /api/v1/survey
 }
 ```
 
-Note: a survey can have a list of questions, and each question can have the following types: `multiple`, `yes_no`, `text`. Questions of type `multiple` can have a list of choices shown in the example above. `yes_no` and `text` questions does not contain choices.
+Notes:
+* a survey can have a list of questions, and each question can have the following types: `multiple`, `yes_no`, `text`.
+* Questions of type `multiple` can have a list of choices shown in the example above. `yes_no` and `text` questions does not contain choices.
+* Questions and choice ordering will match the request's ordering
 
-### Response Status
+You will receive a response of status code 200 and a body like this:
 
-`201`
+```json
+{
+  "survey": {
+    "id": 5,
+    "slug": "survey",
+    "status": "drafted",
+    "site_slug": "foobar",
+    "name": "Survey",
+    "headline": null,
+    "title": null,
+    "excerpt": null,
+    "author_id": null,
+    "external_id": null,
+    "questions": [
+      {
+        "id": 9,
+        "prompt": "What issue is more important to you?",
+        "slug": "important_issue",
+        "type": "multiple",
+        "status": "published",
+        "choices": [
+          {
+            "id": 3,
+            "name": "Daily mail service to all homes. Yeah right....",
+            "feedback": "really now...?"
+          },
+          {
+            "id": 4,
+            "name": "Opposition to any change in our naturalization laws",
+            "feedback": null
+          },
+          {
+            "id": 5,
+            "name": "foobar",
+            "feedback": "foobar"
+          },
+          {
+            "id": 6,
+            "name": "Kansas should be admitted as a state",
+            "feedback": null
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
-### Response Header
+Update Endpoint
+---------------
 
-`Location: /api/v1/survey/123`
+`PUT /api/v1/sites/foobar/pages/surveys/:id`
 
-The response header contains the location of the created resource.
-
-### Response Body
-
-none
-
-## Update a survey
-
-### HTTP Method
-
-`PUT`
-
-### HTTP URI
-
-`/api/v1/survey/<id>`
-
-### Example Request
+### Example
 
 ```
-PUT /api/v1/survey/1234
+PUT https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/surveys/5
 ```
 
 ### Request Body
@@ -189,28 +208,29 @@ PUT /api/v1/survey/1234
 {
   "survey": {
     "slug": "survey",
-    "site_slug": "abeforprez",
+    "site_slug": "foobar",
     "name": "Survey",
     "questions": [{
-      "id": "12",
+      "prompt": "Are you a political junkie?",
+      "type": "yes_no",
+      "slug": "politics_junk",
+      "status": "published"
+    }, {
+      "id": 9,
       "prompt": "What issue is more important to you?",
       "slug": "important_issue",
       "type": "multiple",
       "status": "published",
       "choices": [{
-        "id": "1",
+        "id": 3,
         "name": "Daily mail service to all homes. Yeah right....",
         "feedback": "really now...?"
       }, {
-        "id": "2",
+        "id": 4,
         "name": "Opposition to any change in our naturalization laws",
         "feedback": null
       }, {
-        "id": "3",
-        "name": "foobar",
-        "feedback": "foobar"
-      }, {
-        "id": "4",
+        "id": 6,
         "name": "Kansas should be admitted as a state",
         "feedback": null
       }]
@@ -223,38 +243,67 @@ Note: When updating a survey, Nested resources such as questions and choices are
 
 * Existing nested resources not mentioned in the response body will be deleted.
 * Nested resource is updated if an `id` attribute is supplied and the nested resource is found in your nation's database.
-* The nested resource is ignored if an `id` attribute is supplied but is not found in your nation's database.
+* If a nested resource has an `id` attribute specified but is not found in your nation's database, the API call will fail and respond with status code 404.
 * The nested resource is created if no `id` attribute is supplied.
 
 
-### Response Status
+You will get a response with code 200 like this:
 
-204
+```json
+{
+  "survey": {
+    "id": 5,
+    "slug": "survey",
+    "status": "drafted",
+    "site_slug": "foobar",
+    "name": "Survey",
+    "headline": null,
+    "title": null,
+    "excerpt": null,
+    "author_id": null,
+    "external_id": null,
+    "questions": [
+      {
+        "id": 10,
+        "prompt": "Are you a political junkie?",
+        "slug": "politics_junk",
+        "type": "yes_no",
+        "status": "published",
+        "choices": [
 
-### Response Body
-
-none
-
-## Delete an existing survey
-
-### HTTP Method
-
-`DELETE`
-
-### HTTP URI
-
-`/api/v1/survey/<id>`
-
-### Example Request
-
+        ]
+      },
+      {
+        "id": 9,
+        "prompt": "What issue is more important to you?",
+        "slug": "important_issue",
+        "type": "multiple",
+        "status": "published",
+        "choices": [
+          {
+            "id": 3,
+            "name": "Daily mail service to all homes. Yeah right....",
+            "feedback": "really now...?"
+          },
+          {
+            "id": 4,
+            "name": "Opposition to any change in our naturalization laws",
+            "feedback": null
+          },
+          {
+            "id": 6,
+            "name": "Kansas should be admitted as a state",
+            "feedback": null
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
-DELETE /api/v1/survey/1234
-```
 
-### Response Status
+Destroy Endpoint
+----------------
 
-`204`
-
-### Response Body
-
-none
+Destroy the survey provided.  This does not destroy the associated questions.
+`DELETE /api/v1/survey/:id`
