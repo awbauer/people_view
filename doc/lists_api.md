@@ -131,7 +131,7 @@ Should make an empty list, return status code 200, and have a response body like
 
 ```json
 {
-  "list_resource": {
+  "list": {
     "id": 12,
     "name": "My List",
     "slug": "mylist",
@@ -152,3 +152,46 @@ Destroy Endpoint
 
 Removes the indicated list from NationBuilder
 `DELETE /api/v1/lists/:id`
+
+Listing Creation Endpoint
+-------------------------
+Use this endpoint to add a person to a list.
+
+POST /api/v1/lists/:list_id/listings
+
+### Parameters
+* person_id: id of the person to add to the list
+
+### Example
+
+Issuing a request like this:
+
+```
+POST https://foobar.nationbuilder.com/api/v1/lists/1/listings
+```
+
+```json
+{
+  "listing": {
+    "person_id": 1057
+  }
+}
+```
+
+The the listing should be created, you will receive a 200 response code and a response like this:
+
+```json
+{
+  "listing": {
+    "id": 14,
+    "person_id": 1057,
+    "list_id": 1
+  }
+}
+```
+
+Listing Deletion Endpoint
+-------------------------
+Use this endpoint to remove a person from a list
+
+DELETE /api/v1/lists/:list_id/listings/:id
