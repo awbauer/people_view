@@ -1,9 +1,11 @@
 Surveys API
 ===========
 
+Use the Survey Pages API to interface with surveys stored in NationBuilder
+
 Index Endpoint
 --------------
-Retrieve a list of existing surveys
+Retrieve a paginated list of existing surveys
 
 `GET /api/v1/sites/:site_slug/pages/surveys`
 
@@ -307,3 +309,78 @@ Destroy Endpoint
 
 Destroy the survey provided.  This does not destroy the associated questions.
 `DELETE /api/v1/survey/:id`
+
+Survey Response Creation Endpoint
+=================================
+
+Use this endpoint to register the responses a person has to a survey.  The answers will be attached to their profile page.
+
+Note: Answering questions requires the surveyed person to have a first name and last name recorded.  If the person record does not have this information attached, a validation error will be returned from this call.
+
+POST /api/v1/survey_responses
+
+
+### Parameters
+
+#### Survey Response Parameters
+* survey_id - id of the survey the person answered
+* person_id - id of the person who answered the survey
+* surveyor_id - id of the person who took the answers
+* question_responses - an array of objects representing the responses to individual questions that the surveyed person provided
+
+#### Question Response Parameters
+* question_id - id of the question being answered
+* response - the response provided to the question. Response can be a string or id.  If the survey question being responded to is a multiple choice question, the response will be the choice with the id provided.  If the question is a yes/no question, then the response can be either "yes" or "no".  If the question is a text question, the response will be stored as the provided string.
+
+### Example
+
+```
+POST https://foobar.nationbuilder.com/api/v1/survey_responses
+```
+
+```
+{
+  "survey_response": {
+    "survey_id": 1,
+    "person_id": 19,
+    "surveyor_id": 19247,
+    question_responses: [{
+      "question_id": 12093814098,
+      "response": 3
+    }, {
+      "question_id": 12093814099,
+      "response": "No way man, that isn't cool"
+    }, {
+      "question_id": 12093814100,
+      "response": "yes"
+    }]
+  }
+}
+```
+
+The survey response will be made, and you should receive a response with status 200 and body like this:
+
+```
+{
+  "survey_response": {
+    "id": 3014",
+    "survey_id": 1,
+    "person_id": 19,
+    "surveyor_id": 19247,
+    question_responses: [{
+      "id": 12497,
+      "question_id": 12093814098,
+      "response": 3
+    }, {
+      "id": 12498,
+      "question_id": 12093814099,
+      "response": "No way man, that isn't cool"
+    }, {
+      "id": 12499,
+      "question_id": 12093814100,
+      "response": "yes"
+    }]
+  }
+}
+```
+

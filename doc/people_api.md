@@ -31,19 +31,22 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "id": 30,
       "first_name": "Lenny",
       "last_name": "Loosejocks",
-      "email": "lennyloosejocks@pullyapantsup.com"
+      "email": "lennyloosejocks@pullyapantsup.com",
+      "primary_address": null
     },
     {
       "id": 41,
       "first_name": "Roland",
       "last_name": "Pryzbylewski",
-      "email": "roland@pryzbylewski.com"
+      "email": "roland@pryzbylewski.com",
+      "primary_address": null
     },
     {
       "id": 9,
       "first_name": "Byron",
       "last_name": "Anderson",
-      "email": "byron@nationbuilder.com"
+      "email": "byron@nationbuilder.com",
+      "primary_address": null
     }
   ]
 }
@@ -77,7 +80,7 @@ Should respond with status code 200 and a body like this:
     "email": "byron@nationbuilder.com",
     "phone": null,
     "mobile": null,
-    "home_address": {
+    "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
       "city": "Beverly Hills",
@@ -86,7 +89,8 @@ Should respond with status code 200 and a body like this:
       "zip": "90201",
       "lat": null,
       "lng": null
-    }
+    },
+    "home_address": null
   }
 }
 ```
@@ -128,7 +132,7 @@ Should get a response like this if the person exists:
     "email": "byron@nationbuilder.com",
     "phone": null,
     "mobile": null,
-    "home_address": {
+    "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
       "city": "Beverly Hills",
@@ -137,8 +141,73 @@ Should get a response like this if the person exists:
       "zip": "90201",
       "lat": null,
       "lng": null
-    }
+    },
+    "home_address": null
   }
+}
+```
+
+Nearby Endpoint
+---------------
+
+Searches for people near a location defined by latitude and longitude
+
+```
+GET /api/v1/people/nearby
+```
+
+### Parameters
+* location - origin of search in the format latitude,longitude (required)
+* distance - the radius in miles for which to include results (optional, default 1 mile)
+* page - page number (default 1)
+* per_page - number of results to show per page (default 10, max 100)
+
+### Example
+
+If I wanted to search for the people in my nation that live within a mile of Coors Field in Denver, I would issue a request like this:
+
+```
+GET https://foobar.nationbuilder.com/api/v1/people/nearby?location=39.755417,-104.993834&distance=1
+```
+
+I should receive a response like this:
+
+```
+{
+  "page": 1,
+  "total_pages": 1,
+  "per_page": 10,
+  "total": 1,
+  "results": [
+    {
+      "id": 48,
+      "first_name": "Ezekiel",
+      "last_name": "Smith",
+      "email": "ezekiel@smith.com",
+      "primary_address": {
+        "address1": "1700 Bassett St",
+        "address2": null,
+        "city": "Denver",
+        "state": "CO",
+        "country_code": "US",
+        "zip": "80202",
+        "lat": "39.756461",
+        "lng": "-105.003145"
+      },
+      "phone": null,
+      "mobile": null,
+      "home_address": {
+        "address1": "1700 Bassett St",
+        "address2": null,
+        "city": "Denver",
+        "state": "CO",
+        "country_code": "US",
+        "zip": "80202",
+        "lat": "39.756461",
+        "lng": "-105.003145"
+      }
+    }
+  ]
 }
 ```
 
@@ -176,6 +245,12 @@ With attached body content like this:
     "first_name": "John",
     "last_name": "Doe",
     "email": "johndoe@gmail.com"
+    "home_address": {
+      "address1": "123 Fake St",
+      "city": "Lakewood",
+      "state": "CO",
+      "zip": "80227"
+    }
   }
 }
 ```
@@ -190,7 +265,13 @@ You will receive a response of status 200, with response body like this:
     "email": "johndoe@gmail.com",
     "phone": null,
     "mobile": null,
-    "home_address": null
+    "primary_address": null,
+    "home_address": {
+      "address1": "123 Fake St",
+      "city": "Lakewood",
+      "state": "CO",
+      "zip": "80227"
+    }
   }
 }
 ```
@@ -245,7 +326,7 @@ You will receive a response of status 201 and body response like this:
     "email": "kiaramohr@gmail.com",
     "phone": "3035550841",
     "mobile": null,
-    "home_address": null
+    "primary_address": null
   }
 }
 ```
