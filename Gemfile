@@ -3,9 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'oauth2'
 gem 'pry'
+gem 'pry-plus'
 gem 'pry-remote'
 gem 'will_paginate'
 gem 'twitter-bootstrap-rails'
+gem 'awesome_print'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
