@@ -156,10 +156,6 @@ POST /api/v1/sites/:site_slug/pages/events
     * broadcaster_id - id of the broadcaster on whose behalf the response will be sent
     * subject - subject line of autoresponse email
     * body - body of the autoresponse email
-* tickets - simple ticket price information - Using NationBuilder as your payment processor for events created through the API is not yet supported.
-    * price - price of the tickets without currency marking
-    * currency - currency the price will display in ex. "USD"
-    * url - url to link to for purchasing tickets
 
 ### Example
 
