@@ -170,7 +170,6 @@ POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events
 ```json
 {
   "event": {
-    page_attributes
     "name": "Fasting Day",
     "intro": "Take the 24hr nofoodchallenge!!!",
     "time_zone": "-07:00",
