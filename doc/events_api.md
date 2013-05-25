@@ -201,7 +201,7 @@ POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events
 
 Update Endpoint
 ---------------
-Use the update endpoint to change the details of a pre-existing event page
+Use the update endpoint to change the details of a pre-existing event page.
 
 Show Endpoint
 -------------
@@ -210,21 +210,59 @@ Get the details of a specific event.
 
 Delete Endpoint
 ---------------
+Remove an event from a site.
 
-host list/add/remove
-GET /api/v1/sites/foobar/pages/events/1/hosts
-POST /api/v1/sites/foobar/pages/events/1/hosts
-DELETE /api/v1/sites/foobar/pages/events/1/hosts
+DELETE /api/v1/sites/:site_slug/pages/events/:id
 
-PIECES:
+RSVP Index Endpoint
+-------------------
+Use this endpoint to list the RSVPs for an event
 
-event creation, updating
+GET /api/v1/sites/:site_slug/pages/events/:event_id/rsvps
+
+### Parameters
+* page - page number (optional, default 1)
+* per_page - number of results to show per page (optional, default 10, max 100)
+
+### Example
+
+Issuing this request:
+
+```
+GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events/1/rsvps
+```
+
+Should get you a response like this:
+
+```json
+
+```
 
 RSVP Creation Endpoint
 ----------------------
 Use this endpoint to create an RSVP for an event
 
-POST /api/v1/sites/foobar/pages/events/1/rsvps
+POST /api/v1/sites/:site_slug/pages/events/:event_id/rsvps
+
+### Parameters
+
+* rsvp
+    * person_id - id of the person RSVPing for the event
+    * guests_count - number of guests the person is bringing with them
+    * volunteer - whether the person wishes to be volunteer staff for the event
+    * private - whether the RSVP should be considered private
+    * canceled - whether the person canceled the RSVP
+    * attended - whether the person actually attended the event
+
+### Example
+
+Issuing a request like this:
+
+```
+POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events/1/rsvps
+```
+
+With attached body like this:
 
 ```json
 {
@@ -233,7 +271,23 @@ POST /api/v1/sites/foobar/pages/events/1/rsvps
     "guests_count": 2,
     "volunteer": true,
     "private": true,
-    "tickets_count": 0,
+    "canceled": false,
+    "attended": true
+  }
+}
+```
+
+Should get you a response like this:
+
+```json
+{
+  "rsvp": {
+    "id": 5,
+    "event_id": 1,
+    "person_id": 123,
+    "guests_count": 2,
+    "volunteer": false,
+    "private": true,
     "canceled": false,
     "attended": true
   }
@@ -242,9 +296,7 @@ POST /api/v1/sites/foobar/pages/events/1/rsvps
 
 RSVP Update Endpoint
 --------------------
+Update the RSVP details, to set whether they cancel or attend, for example.
+Acts similarly to creation endpoint.
 
-RSVP Index Endpoint
--------------------
-Use this endpoint to list the RSVPs for an event
-
-GET /api/v1/sites/foobar/pages/events/1/rsvps
+PUT /api/v1/sites/:site_slug/pages/events/:event_id/rsvps/:id
