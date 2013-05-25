@@ -32,6 +32,9 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "first_name": "Lenny",
       "last_name": "Loosejocks",
       "email": "lennyloosejocks@pullyapantsup.com",
+      "phone": null,
+      "mobile": null,
+      "birthdate": null,
       "primary_address": null
     },
     {
@@ -39,6 +42,9 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "first_name": "Roland",
       "last_name": "Pryzbylewski",
       "email": "roland@pryzbylewski.com",
+      "phone": null,
+      "mobile": null,
+      "birthdate": null,
       "primary_address": null
     },
     {
@@ -46,6 +52,9 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "first_name": "Byron",
       "last_name": "Anderson",
       "email": "byron@nationbuilder.com",
+      "phone": null,
+      "mobile": null,
+      "birthdate": null,
       "primary_address": null
     }
   ]
@@ -80,6 +89,7 @@ Should respond with status code 200 and a body like this:
     "email": "byron@nationbuilder.com",
     "phone": null,
     "mobile": null,
+    "birthdate": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -118,7 +128,7 @@ Parameters act as matching criteria.
 A request like this:
 
 ```
-GET /api/v1/people/match?email=byron@nationbuilder.com
+GET https://foobar.nationbuilder.com/api/v1/people/match?email=byron@nationbuilder.com
 ```
 
 Should get a response like this if the person exists:
@@ -126,6 +136,55 @@ Should get a response like this if the person exists:
 ```json
 {
   "person": {
+    "id": 9,
+    "first_name": "Byron",
+    "last_name": "Anderson",
+    "email": "byron@nationbuilder.com",
+    "phone": null,
+    "mobile": null,
+    "birthdate": null,
+    "note": null,
+    "primary_address": {
+      "address1": "123 Fake St",
+      "address2": null,
+      "city": "Beverly Hills",
+      "state": "CA",
+      "country_code": "US",
+      "zip": "90201",
+      "lat": null,
+      "lng": null
+    },
+    "home_address": null
+  }
+}
+```
+
+Search Endpoint
+---------------
+Search for people with non-unique traits of their first and last names, and their primary address city and state.
+A maximum of 20 people will be returned.
+
+GET /api/v1/people/match
+
+### Parameters
+* first_name - first name search parameter
+* last_name - last name search parameter
+* city - city of the primary address of people to match
+* state - state of the primary address of people to match
+
+### Example
+
+```json
+{
+  "first_name": "Byron",
+  "city": "Beverly Hills",
+  "first_name": "CA"
+}
+```
+
+```json
+{
+  "results": [{
     "id": 9,
     "first_name": "Byron",
     "last_name": "Anderson",
@@ -141,9 +200,8 @@ Should get a response like this if the person exists:
       "zip": "90201",
       "lat": null,
       "lng": null
-    },
-    "home_address": null
-  }
+    }
+  }]
 }
 ```
 
@@ -228,6 +286,8 @@ POST /api/v1/people
 * email - the person's email address
 * phone - the person's home phone number
 * mobile - the person's cell phone number
+* birthdate - the person's birthdate
+* note - a note to attach to the person's profile
 
 ### Example
 
@@ -265,6 +325,8 @@ You will receive a response of status 200, with response body like this:
     "email": "johndoe@gmail.com",
     "phone": null,
     "mobile": null,
+    "birthdate": null,
+    "note": null,
     "primary_address": null,
     "home_address": {
       "address1": "123 Fake St",
@@ -326,6 +388,8 @@ You will receive a response of status 201 and body response like this:
     "email": "kiaramohr@gmail.com",
     "phone": "3035550841",
     "mobile": null,
+    "birthdate": null,
+    "note": null,
     "primary_address": null
   }
 }
