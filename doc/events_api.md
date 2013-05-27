@@ -235,7 +235,24 @@ GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events/1/rsvps
 Should get you a response like this:
 
 ```json
-
+{
+  "page": 1,
+  "total_pages": 1,
+  "per_page": 10,
+  "total": 1,
+  "results": [
+    {
+      "id": 2,
+      "event_id": 13,
+      "person_id": 75406,
+      "guests_count": 2,
+      "volunteer": false,
+      "private": true,
+      "canceled": false,
+      "attended": true
+    }
+  ]
+}
 ```
 
 RSVP Creation Endpoint
