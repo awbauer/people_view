@@ -288,6 +288,15 @@ POST /api/v1/people
 * mobile - the person's cell phone number
 * birthdate - the person's birthdate
 * note - a note to attach to the person's profile
+* home_address - an address object representing the person's home
+    * address1 - first address line
+    * address2 - second address line
+    * city - city
+    * state - state
+    * zip - zip code
+    * country_code - country code
+    * lat - latitude (using WGS-84)
+    * lng - longitude (using WGS-84)
 
 ### Example
 
@@ -355,6 +364,17 @@ PUT /api/v1/people/:id
 * email - the person's email address
 * phone - the person's home phone number
 * mobile - the person's cell phone number
+* birthdate - the person's birthdate
+* note - a note to attach to the person's profile
+* home_address - an address object representing the person's home
+    * address1 - first address line
+    * address2 - second address line
+    * city - city
+    * state - state
+    * zip - zip code
+    * country_code - country code
+    * lat - latitude (using WGS-84)
+    * lng - longitude (using WGS-84)
 
 ### Example
 
