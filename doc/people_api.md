@@ -35,6 +35,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "phone": null,
       "mobile": null,
       "birthdate": null,
+      "sex": null,
       "primary_address": null
     },
     {
@@ -45,6 +46,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "phone": null,
       "mobile": null,
       "birthdate": null,
+      "sex": null,
       "primary_address": null
     },
     {
@@ -55,6 +57,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "phone": null,
       "mobile": null,
       "birthdate": null,
+      "sex": null,
       "primary_address": null
     }
   ]
@@ -90,6 +93,7 @@ Should respond with status code 200 and a body like this:
     "phone": null,
     "mobile": null,
     "birthdate": null,
+    "sex": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -143,6 +147,7 @@ Should get a response like this if the person exists:
     "phone": null,
     "mobile": null,
     "birthdate": null,
+    "sex": null,
     "note": null,
     "primary_address": {
       "address1": "123 Fake St",
@@ -171,6 +176,8 @@ GET /api/v1/people/match
 * last_name - last name search parameter
 * city - city of the primary address of people to match
 * state - state of the primary address of people to match
+* sex - sex of the people to match (optional, M or F)
+* birthdate - Date of birth of the people to match
 
 ### Example
 
@@ -189,6 +196,8 @@ GET /api/v1/people/match
     "first_name": "Byron",
     "last_name": "Anderson",
     "email": "byron@nationbuilder.com",
+    "sex": null,
+    "birthdate": null,
     "phone": null,
     "mobile": null,
     "primary_address": {
@@ -287,6 +296,7 @@ POST /api/v1/people
 * phone - the person's home phone number
 * mobile - the person's cell phone number
 * birthdate - the person's birthdate
+* sex - the person's sex (M or F)
 * note - a note to attach to the person's profile
 * home_address - an address object representing the person's home
     * address1 - first address line
@@ -334,6 +344,7 @@ You will receive a response of status 200, with response body like this:
     "email": "johndoe@gmail.com",
     "phone": null,
     "mobile": null,
+    "sex": null,
     "birthdate": null,
     "note": null,
     "primary_address": null,
@@ -365,6 +376,7 @@ PUT /api/v1/people/:id
 * phone - the person's home phone number
 * mobile - the person's cell phone number
 * birthdate - the person's birthdate
+* sex - the person's sex (M or F)
 * note - a note to attach to the person's profile
 * home_address - an address object representing the person's home
     * address1 - first address line
@@ -409,6 +421,7 @@ You will receive a response of status 201 and body response like this:
     "phone": "3035550841",
     "mobile": null,
     "birthdate": null,
+    "sex": null,
     "note": null,
     "primary_address": null
   }
