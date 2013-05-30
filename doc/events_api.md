@@ -8,11 +8,11 @@ Use this endpoint to list the events stored in the nation
 GET /api/v1/sites/:site_slug/pages/events
 
 ### Attributes
-    * page - page number
-    * per_page - number of results to show per page
-    * tags - tags present on events returned
-    * starting - earliest start time for events returned (inclusive)
-    * until - latest end time for events returned (exclusive)
+* page - page number
+* per_page - number of results to show per page
+* tags - tags present on events returned
+* starting - earliest start time for events returned (inclusive)
+* until - latest end time for events returned (exclusive)
 
 ### Example
 
