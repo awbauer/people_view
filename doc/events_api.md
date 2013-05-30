@@ -205,8 +205,61 @@ Use the update endpoint to change the details of a pre-existing event page.
 
 Show Endpoint
 -------------
-
 Get the details of a specific event.
+
+GET /api/v1/sites/:site_slug/pages/events/:id
+
+### Example
+
+```
+GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events/1
+```
+
+```json
+{
+  "event": {
+    "id": 1,
+    "slug": "foobar",
+    "status": "drafted",
+    "site_slug": "foobar",
+    "name": "foobar",
+    "headline": "foobar",
+    "title": "foobar - Foobar Softwares",
+    "excerpt": null,
+    "author_id": 1,
+    "published_at": null,
+    "external_id": null,
+    "intro": null,
+    "calendar_id": 1,
+    "contact": {
+      "name": null,
+      "phone": null,
+      "show_phone": true,
+      "email": null,
+      "show_email": true
+    },
+    "start_time": "2013-02-07T18:00:00-08:00",
+    "end_time": "2013-02-07T21:00:00-08:00",
+    "rsvp_form": {
+      "phone": "hidden",
+      "address": "hidden",
+      "allow_guests": true,
+      "gather_volunteers": false
+    },
+    "capacity": 0,
+    "show_guests": true,
+    "venue": {
+      "name": null,
+      "address": null
+    },
+    "autoresponse": {
+      "broadcaster_id": 2,
+      "subject": "RSVP confirmation for foobar",
+      "body": null
+    }
+  }
+}
+```
 
 Delete Endpoint
 ---------------
