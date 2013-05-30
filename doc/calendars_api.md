@@ -3,7 +3,6 @@ Calendars API
 
 Index Endpoint
 --------------
-
 Use this endpoint to view the calendars a nation maintains.
 
 GET /api/v1/sites/:site_slug/pages/calendars
@@ -77,7 +76,6 @@ GET https://foobar.nationbuilder.com/api/v1/foobar/pages/calendars
 
 Show Endpoint
 -------------
-
 Use this endpoint to get the details about one calendar a nation maintains.
 
 GET /api/v1/sites/:site_slug/pages/calendars/:id
@@ -120,7 +118,6 @@ Should get you a 200 response with body like:
 
 Create Endpoint
 ---------------
-
 Use this endpoint to make a calendar for the nation
 
 POST /api/v1/sites/:site_slug/pages/calendars
@@ -183,14 +180,12 @@ You should get a 200 response and a body like this:
 
 Update Endpoint
 ---------------
-
 Update an existing calendar to have the provided attributes.  Expect similar response as creation.  Partial updates are unsupported.
 
 PUT /api/v1/sites/:site_slug/pages/calendars
 
 Destroy Endpoint
 ----------------
-
 Use this endpoint to remove a calendar from a nation.
 
 DELETE /api/v1/sites/:site_slug/pages/calendars/:id
