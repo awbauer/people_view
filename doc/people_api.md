@@ -402,7 +402,6 @@ With request body like this:
 {
   "person": {
     "first_name": "John",
-    "last_name": "Doe",
     "email": "johndoe@gmail.com",
     "phone": "303-555-0841"
   }
@@ -423,6 +422,85 @@ You will receive a response of status 201 and body response like this:
     "birthdate": null,
     "sex": null,
     "note": null,
+    "primary_address": null
+  }
+}
+```
+
+Push Endpoint
+-------------
+Updates person matched, or creates if no match is found.  Matches are found exclusively by email address.
+
+```
+PUT /api/v1/people/push
+```
+
+### Update Example
+Assuming there is a person with the email address "byron@foobarsoftwares.com" in the Foobar nation, this request:
+
+```
+PUT https://foobar.nationbuilder.com/api/v1/people/push
+```
+
+With this attached request body:
+
+```json
+{
+  "person": {
+    "email": "byron@foobarsoftwares.com",
+    "last_name": "Erastos",
+    "sex": "M"
+  }
+}
+```
+
+Should update the existing record to have the new name and sex, return status code 200, and this body:
+
+```json
+{
+  "person": {
+    "id": 184,
+    "email": "byron@foobarsoftwares.com",
+    "first_name": "Byron",
+    "last_name": "Erastos",
+    "sex": "M"
+    "birthdate": null,
+    "primary_address": null
+  }
+}
+```
+
+### Creation example
+Assuming there is no matching person in the Foobar nation
+
+```
+PUT https://foobar.nationbuilder.com/api/v1/people/push
+```
+
+With this attached request body:
+
+```json
+{
+  "person": {
+    "email": "byron@foobarsoftwares.com",
+    "first_name": "Byron",
+    "last_name": "Erastos",
+    "sex": "M"
+  }
+}
+```
+
+Should create a new record with those attributes, return status code 200, and this body:
+
+```json
+{
+  "person": {
+    "id": 184,
+    "email": "byron@foobarsoftwares.com",
+    "first_name": "Byron",
+    "last_name": "Erastos",
+    "sex": "M"
+    "birthdate": null,
     "primary_address": null
   }
 }
