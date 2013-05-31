@@ -94,6 +94,7 @@ Should respond with status code 200 and a body like this:
     "mobile": null,
     "birthdate": null,
     "sex": null,
+    "note": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -323,7 +324,7 @@ With attached body content like this:
   "person": {
     "first_name": "John",
     "last_name": "Doe",
-    "email": "johndoe@gmail.com"
+    "email": "johndoe@gmail.com",
     "home_address": {
       "address1": "123 Fake St",
       "city": "Lakewood",
