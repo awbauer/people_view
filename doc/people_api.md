@@ -36,6 +36,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "mobile": null,
       "birthdate": null,
       "sex": null,
+      "tags": [],
       "primary_address": null
     },
     {
@@ -47,6 +48,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "mobile": null,
       "birthdate": null,
       "sex": null,
+      "tags": [],
       "primary_address": null
     },
     {
@@ -58,6 +60,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "mobile": null,
       "birthdate": null,
       "sex": null,
+      "tags": [],
       "primary_address": null
     }
   ]
@@ -94,6 +97,7 @@ Should respond with status code 200 and a body like this:
     "mobile": null,
     "birthdate": null,
     "sex": null,
+    "tags": [],
     "note": null,
     "primary_address": {
       "address1": "123 Fake St",
@@ -149,6 +153,7 @@ Should get a response like this if the person exists:
     "mobile": null,
     "birthdate": null,
     "sex": null,
+    "tags": [],
     "note": null,
     "primary_address": {
       "address1": "123 Fake St",
@@ -298,6 +303,7 @@ POST /api/v1/people
 * mobile - the person's cell phone number
 * birthdate - the person's birthdate
 * sex - the person's sex (M or F)
+* tags - the tags assigned to the person, as an array of strings
 * note - a note to attach to the person's profile
 * home_address - an address object representing the person's home
     * address1 - first address line
@@ -325,6 +331,7 @@ With attached body content like this:
     "first_name": "John",
     "last_name": "Doe",
     "email": "johndoe@gmail.com",
+    "tags": ["tag1", "tag2"],
     "home_address": {
       "address1": "123 Fake St",
       "city": "Lakewood",
@@ -347,6 +354,7 @@ You will receive a response of status 200, with response body like this:
     "mobile": null,
     "sex": null,
     "birthdate": null,
+    "tags": ["tag1", "tag2"],
     "note": null,
     "primary_address": null,
     "home_address": {
@@ -378,6 +386,7 @@ PUT /api/v1/people/:id
 * mobile - the person's cell phone number
 * birthdate - the person's birthdate
 * sex - the person's sex (M or F)
+* tags - the tags assigned to the person, as an array of strings
 * note - a note to attach to the person's profile
 * home_address - an address object representing the person's home
     * address1 - first address line
@@ -423,6 +432,7 @@ You will receive a response of status 201 and body response like this:
     "mobile": null,
     "birthdate": null,
     "sex": null,
+    "tags": [],
     "note": null,
     "primary_address": null
   }
