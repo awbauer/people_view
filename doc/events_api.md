@@ -75,7 +75,13 @@ GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events?starting=2
         "broadcaster_id": null,
         "subject": null,
         "body": null
-      }
+      },
+      "shifts": [{
+        "id": 1,
+        "start_time": "2013-05-17T10:50:17-07:00",
+        "end_time": "2013-05-17T11:55:17-07:00",
+        "goal": 15,
+      }]
     },
     {
       "id": 3,
@@ -116,7 +122,8 @@ GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events?starting=2
         "broadcaster_id": 2,
         "subject": "RSVP confirmation for event",
         "body": null
-      }
+      },
+      "shifts": null
     }
   ]
 }
@@ -156,6 +163,10 @@ POST /api/v1/sites/:site_slug/pages/events
     * broadcaster_id - id of the broadcaster on whose behalf the response will be sent
     * subject - subject line of autoresponse email
     * body - body of the autoresponse email
+* shifts - an array of shifts to offer for volunteering on the RSVP form.  Each shift definition has these attributes:
+    * goal - the goal amount of volunteers to gather for the event shift
+    * start_time - starting time of the shift
+    * end_time - ending time of the shift
 
 ### Example
 
@@ -194,7 +205,8 @@ POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events
         "city": "Pasadena",
         "state": "CA"
       }
-    }
+    },
+    shifts: null
   }
 }
 ```
@@ -256,7 +268,8 @@ GET https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/events/1
       "broadcaster_id": 2,
       "subject": "RSVP confirmation for foobar",
       "body": null
-    }
+    },
+    shifts: null
   }
 }
 ```
@@ -323,6 +336,7 @@ POST /api/v1/sites/:site_slug/pages/events/:event_id/rsvps
     * private - whether the RSVP should be considered private
     * canceled - whether the person canceled the RSVP
     * attended - whether the person actually attended the event
+    * shift_ids - ids of shifts the person wishes to staff
 
 ### Example
 
@@ -342,7 +356,8 @@ With attached body like this:
     "volunteer": true,
     "private": true,
     "canceled": false,
-    "attended": true
+    "attended": true,
+    "shift_ids": [1, 2, 3]
   }
 }
 ```
@@ -359,7 +374,8 @@ Should get you a response like this:
     "volunteer": false,
     "private": true,
     "canceled": false,
-    "attended": true
+    "attended": true,
+    "shift_ids": [1, 2, 3]
   }
 }
 ```
