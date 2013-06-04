@@ -550,3 +550,40 @@ This should get you an of success or failure like this:
 ```
 
 Success means that the account activation email was sent successfully
+
+Me Endpoint
+-----------
+Returns the access token's resource owner's representation.
+
+```
+GET /api/v1/people/me
+```
+
+### Example
+
+Issuing this request:
+
+```
+GET https://foobar.nationbuilder.com/api/v1/people/me
+```
+
+Should get you a response with 200 status and a body like this:
+
+```json
+{
+  "person": {
+    "id": 43968,
+    "first_name": "Byron",
+    "last_name": "Anderson",
+    "email": "byron@nationbuilder.com",
+    "phone": null,
+    "mobile": null,
+    "birthdate": null,
+    "sex": null,
+    "note": null,
+    "primary_address": null,
+    "tags": [],
+    "home_address": null
+  }
+}
+```
