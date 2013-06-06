@@ -58,7 +58,7 @@ POST /api/v1/sites/:site_slug/pages/:page_slug/attachments
     * filename - name for the provided file
     * content_type - MIME type string for the provided file
     * updated_at - when the file was last updated
-    * content - (tk standard) Base 64 encoded representation of the file, with standard RFC 4648
+    * content - Base 64 encoded representation of the file, with standard RFC 4648
 
 The response will not contain the file content, but all representations of this resource will include a url at which you can host the file.
 
