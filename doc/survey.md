@@ -100,7 +100,28 @@ Create Endpoint
 
 Creates a survey page with the attributes and questions provided.
 
-`POST /api/v1/sites/:site_slug/pages/surveys`
+```
+POST /api/v1/sites/:site_slug/pages/surveys
+```
+
+### Parameters
+
+* slug - the path at which to place the page.  Must be unique, and there are some restrictions for namespace collisions. (Optional- will be computed from name if not present)
+* status - published or drafted, depending on whether you want to page to be available immediately (required)
+* author_id - the NationBuilder id author of the blog (optional)
+* name - internal name, how the page will be referred to in lists in the control panel (required)
+* title - Title of the page, shows up as tab name, for example (optional, defaults to the name)
+* headline - Heading on the page (optional, defaults to the name)
+* excerpt - meta attribute for SEO - description (optional)
+* external_id - the unique identifier for this resource in an external service (optional)
+* questions - array of question resources that represent the questions to ask when a person takes the survey
+    * `prompt` - (required) the question string
+    * `type` - (required) the type of response the question expects (`multiple` for multiple choice, `yes_no` for a yes/no question, `text` for a free response question)
+    * `status` - (required) `drafted` or `published`
+    * `slug` - (required) url portion to represent this question
+    * `choices` - Choices available for a multiple choice question
+        * `name` - (required) the string for the choice
+        * `feedback` - feedback to show to the user if this choice is selected
 
 ### Example
 
@@ -138,10 +159,7 @@ POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/surveys
 }
 ```
 
-Notes:
-* a survey can have a list of questions, and each question can have the following types: `multiple`, `yes_no`, `text`.
-* Questions of type `multiple` can have a list of choices shown in the example above. `yes_no` and `text` questions does not contain choices.
-* Questions and choice ordering will match the request's ordering
+Please note that questions and choice ordering will match the request's ordering.
 
 You will receive a response of status code 200 and a body like this:
 
@@ -308,7 +326,10 @@ Destroy Endpoint
 ----------------
 
 Destroy the survey provided.  This does not destroy the associated questions.
-`DELETE /api/v1/survey/:id`
+
+```
+DELETE /api/v1/sites/:site_slug/pages/surveys/:id
+```
 
 Survey Response Creation Endpoint
 =================================
