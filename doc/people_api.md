@@ -121,7 +121,7 @@ Should respond with status code 200 and a body like this:
 Match Endpoint
 --------------
 
-Use the match endpoint to find people that have certain attributes
+Use the match endpoint to find people that have certain attributes.  A single person must match the given criteria for this endpoint to return success.
 
 ```
 GET /api/v1/people/match
