@@ -37,6 +37,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "birthdate": null,
       "sex": null,
       "tags": [],
+      "support_level": null,
       "primary_address": null
     },
     {
@@ -49,6 +50,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "birthdate": null,
       "sex": null,
       "tags": [],
+      "support_level": null,
       "primary_address": null
     },
     {
@@ -61,6 +63,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
       "birthdate": null,
       "sex": null,
       "tags": [],
+      "support_level": null,
       "primary_address": null
     }
   ]
@@ -99,6 +102,7 @@ Should respond with status code 200 and a body like this:
     "sex": null,
     "tags": [],
     "note": null,
+    "support_level": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -155,6 +159,7 @@ Should get a response like this if the person exists:
     "sex": null,
     "tags": [],
     "note": null,
+    "support_level": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -206,6 +211,7 @@ GET /api/v1/people/match
     "birthdate": null,
     "phone": null,
     "mobile": null,
+    "support_level": null,
     "primary_address": {
       "address1": "123 Fake St",
       "address2": null,
@@ -257,6 +263,7 @@ I should receive a response like this:
       "first_name": "Ezekiel",
       "last_name": "Smith",
       "email": "ezekiel@smith.com",
+      "support_level": null,
       "primary_address": {
         "address1": "1700 Bassett St",
         "address2": null,
@@ -305,6 +312,7 @@ POST /api/v1/people
 * sex - the person's sex (M or F)
 * tags - the tags assigned to the person, as an array of strings
 * note - a note to attach to the person's profile
+* support_level - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
 * home_address - an address object representing the person's home
     * address1 - first address line
     * address2 - second address line
@@ -358,6 +366,7 @@ You will receive a response of status 200, with response body like this:
     "birthdate": null,
     "tags": ["tag1", "tag2"],
     "note": null,
+    "support_level": null,
     "primary_address": null,
     "home_address": {
       "address1": "123 Fake St",
@@ -390,6 +399,7 @@ PUT /api/v1/people/:id
 * sex - the person's sex (M or F)
 * tags - the tags assigned to the person, as an array of strings
 * note - a note to attach to the person's profile
+* support_level - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
 * home_address - an address object representing the person's home
     * address1 - first address line
     * address2 - second address line
@@ -435,6 +445,7 @@ You will receive a response of status 201 and body response like this:
     "sex": null,
     "tags": [],
     "note": null,
+    "support_level": null,
     "primary_address": null
   }
 }
@@ -478,6 +489,8 @@ Should update the existing record to have the new name and sex, return status co
     "last_name": "Erastos",
     "sex": "M"
     "birthdate": null,
+    "tags": [],
+    "support_level": null,
     "primary_address": null
   }
 }
@@ -514,6 +527,8 @@ Should create a new record with those attributes, return status code 200, and th
     "last_name": "Erastos",
     "sex": "M"
     "birthdate": null,
+    "tags": [],
+    "support_level": null,
     "primary_address": null
   }
 }
@@ -583,6 +598,7 @@ Should get you a response with 200 status and a body like this:
     "birthdate": null,
     "sex": null,
     "note": null,
+    "support_level": null,
     "primary_address": null,
     "tags": [],
     "home_address": null
