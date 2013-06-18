@@ -315,6 +315,8 @@ POST /api/v1/people
     * lat - latitude (using WGS-84)
     * lng - longitude (using WGS-84)
 
+A person is considered valid with a name or a phone number or an email.  If a person you create does not meet these criteria you will receive an error for a field called identity.
+
 ### Example
 
 Make the request:
