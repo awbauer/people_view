@@ -29,6 +29,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
   "results": [
     {
       "id": 30,
+      "external_id": null,
       "first_name": "Lenny",
       "last_name": "Loosejocks",
       "email": "lennyloosejocks@pullyapantsup.com",
@@ -42,6 +43,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
     },
     {
       "id": 41,
+      "external_id": null,
       "first_name": "Roland",
       "last_name": "Pryzbylewski",
       "email": "roland@pryzbylewski.com",
@@ -55,6 +57,7 @@ GET https://foobar.nationbuilder.com/api/v1/people?page=2
     },
     {
       "id": 9,
+      "external_id": null,
       "first_name": "Byron",
       "last_name": "Anderson",
       "email": "byron@nationbuilder.com",
@@ -79,6 +82,10 @@ Returns a full representation of the person with the provided id.  Takes no para
 GET /api/v1/people/:id
 ```
 
+### Parameters
+
+* id_type - type of id to use, set to 'external' to show the person based on their external id
+
 ### Example
 
 A request like this:
@@ -87,12 +94,19 @@ A request like this:
 GET /api/v1/people/9
 ```
 
+or this:
+
+```
+GET /api/v1/people/8491?id_type=external
+```
+
 Should respond with status code 200 and a body like this:
 
 ```json
 {
   "person": {
     "id": 9,
+    "external_id": "8491",
     "first_name": "Byron",
     "last_name": "Anderson",
     "email": "byron@nationbuilder.com",
@@ -150,6 +164,7 @@ Should get a response like this if the person exists:
 {
   "person": {
     "id": 9,
+    "external_id": null,
     "first_name": "Byron",
     "last_name": "Anderson",
     "email": "byron@nationbuilder.com",
@@ -192,6 +207,8 @@ GET /api/v1/people/match
 
 ### Example
 
+Searching with a request body like this:
+
 ```json
 {
   "first_name": "Byron",
@@ -200,10 +217,13 @@ GET /api/v1/people/match
 }
 ```
 
+Should give you a response like this:
+
 ```json
 {
   "results": [{
     "id": 9,
+    "external_id": null,
     "first_name": "Byron",
     "last_name": "Anderson",
     "email": "byron@nationbuilder.com",
@@ -260,6 +280,7 @@ I should receive a response like this:
   "results": [
     {
       "id": 48,
+      "external_id": null,
       "first_name": "Ezekiel",
       "last_name": "Smith",
       "email": "ezekiel@smith.com",
@@ -303,6 +324,7 @@ POST /api/v1/people
 ### Parameters
 
 * person - the json representation of the person to be created
+* external_id - string representing an external identifier for this person
 * first_name - the person's first name and middle names
 * last_name - the person's last name
 * email - the person's email address
@@ -357,6 +379,7 @@ You will receive a response of status 200, with response body like this:
 {
   "person": {
     "id": 54,
+    "external_id": null,
     "first_name": "John",
     "last_name": "Doe",
     "email": "johndoe@gmail.com",
@@ -390,6 +413,7 @@ PUT /api/v1/people/:id
 ### Parameters
 
 * person - the json representation of the person to be created
+* external_id - string representing an external identifier for this person
 * first_name - the person's first name and middle names
 * last_name - the person's last name
 * email - the person's email address
@@ -436,6 +460,7 @@ You will receive a response of status 201 and body response like this:
 {
   "person": {
     "id": 54,
+    "external_id": null,
     "first_name": "John",
     "last_name": "Doe",
     "email": "kiaramohr@gmail.com",
@@ -485,6 +510,7 @@ Should update the existing record to have the new name and sex, return status co
   "person": {
     "id": 184,
     "email": "byron@foobarsoftwares.com",
+    "external_id": null,
     "first_name": "Byron",
     "last_name": "Erastos",
     "sex": "M"
@@ -523,6 +549,7 @@ Should create a new record with those attributes, return status code 200, and th
   "person": {
     "id": 184,
     "email": "byron@foobarsoftwares.com",
+    "external_id": null,
     "first_name": "Byron",
     "last_name": "Erastos",
     "sex": "M"
@@ -590,6 +617,7 @@ Should get you a response with 200 status and a body like this:
 {
   "person": {
     "id": 43968,
+    "external_id": null,
     "first_name": "Byron",
     "last_name": "Anderson",
     "email": "byron@nationbuilder.com",
