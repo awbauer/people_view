@@ -38,6 +38,7 @@ You will receive a response with status 200 and this data:
         {
           "id": 1,
           "prompt": "What issue is more important to you?",
+          "external_id": null,
           "slug": "important_issue",
           "type": "multiple",
           "status": "published",
@@ -67,6 +68,7 @@ You will receive a response with status 200 and this data:
         {
           "id": 4,
           "prompt": "Do you support high speed trains to the sea?",
+          "external_id": null,
           "slug": "trains2",
           "type": "multiple",
           "status": "published",
@@ -116,6 +118,7 @@ POST /api/v1/sites/:site_slug/pages/surveys
 * external_id - the unique identifier for this resource in an external service (optional)
 * questions - array of question resources that represent the questions to ask when a person takes the survey
     * `prompt` - (required) the question string
+    * `external_id` - (optional) an external identification string for this question
     * `type` - (required) the type of response the question expects (`multiple` for multiple choice, `yes_no` for a yes/no question, `text` for a free response question)
     * `status` - (required) `drafted` or `published`
     * `slug` - (required) url portion to represent this question
@@ -138,6 +141,7 @@ POST https://foobar.nationbuilder.com/api/v1/sites/foobar/pages/surveys
     "name": "Survey",
     "questions": [{
       "prompt": "What issue is more important to you?",
+      "external_id": null,
       "slug": "important_issue",
       "type": "multiple",
       "status": "published",
@@ -286,6 +290,7 @@ You will get a response with code 200 like this:
       {
         "id": 10,
         "prompt": "Are you a political junkie?",
+        "external_id": null,
         "slug": "politics_junk",
         "type": "yes_no",
         "status": "published",
@@ -296,6 +301,7 @@ You will get a response with code 200 like this:
       {
         "id": 9,
         "prompt": "What issue is more important to you?",
+        "external_id": null,
         "slug": "important_issue",
         "type": "multiple",
         "status": "published",
