@@ -108,15 +108,15 @@ POST /api/v1/sites/:site_slug/pages/surveys
 
 ### Parameters
 
-* slug - the path at which to place the page.  Must be unique, and there are some restrictions for namespace collisions. (Optional- will be computed from name if not present)
-* status - published or drafted, depending on whether you want to page to be available immediately (required)
-* author_id - the NationBuilder id author of the blog (optional)
-* name - internal name, how the page will be referred to in lists in the control panel (required)
-* title - Title of the page, shows up as tab name, for example (optional, defaults to the name)
-* headline - Heading on the page (optional, defaults to the name)
-* excerpt - meta attribute for SEO - description (optional)
-* external_id - the unique identifier for this resource in an external service (optional)
-* questions - array of question resources that represent the questions to ask when a person takes the survey
+* `slug` - the path at which to place the page.  Must be unique, and there are some restrictions for namespace collisions. (Optional- will be computed from name if not present)
+* `status` - published or drafted, depending on whether you want to page to be available immediately (required)
+* `author_id` - the NationBuilder id author of the blog (optional)
+* `name` - internal name, how the page will be referred to in lists in the control panel (required)
+* `title` - Title of the page, shows up as tab name, for example (optional, defaults to the name)
+* `headline` - Heading on the page (optional, defaults to the name)
+* `excerpt` - meta attribute for SEO - description (optional)
+* `external_id` - the unique identifier for this resource in an external service (optional)
+* `questions` - array of question resources that represent the questions to ask when a person takes the survey
     * `prompt` - (required) the question string
     * `external_id` - (optional) an external identification string for this question
     * `type` - (required) the type of response the question expects (`multiple` for multiple choice, `yes_no` for a yes/no question, `text` for a free response question)
@@ -337,8 +337,74 @@ Destroy the survey provided.  This does not destroy the associated questions.
 DELETE /api/v1/sites/:site_slug/pages/surveys/:id
 ```
 
+Survey Response Index Endpoint
+------------------------------
+
+List survey responses, ordered by their creation time.
+
+```
+GET /api/v1/survey_responses
+```
+
+### Parameters
+* `page` - page number
+* `per_page` - number of results to show per-page
+
+### Example
+
+```
+GET https://foobar.nationbuilder.com/api/v1/survey_responses
+```
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "per_page": 10,
+  "total": 2,
+  "results": [
+    {
+      "id": 2,
+      "survey_id": 3,
+      "person_id": 17738,
+      "surveyor_id": null,
+      "question_responses": [
+        {
+          "id": 4,
+          "response": "yes",
+          "question_id": 4
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "survey_id": 1,
+      "person_id": 1,
+      "surveyor_id": null,
+      "question_responses": [
+        {
+          "id": 1,
+          "response": 2,
+          "question_id": 1
+        },
+        {
+          "id": 2,
+          "response": 4,
+          "question_id": 2
+        },
+        {
+          "id": 3,
+          "response": 7,
+          "question_id": 3
+        }
+      ]
+    }
+  ]
+}
+```
+
 Survey Response Creation Endpoint
-=================================
+---------------------------------
 
 Use this endpoint to register the responses a person has to a survey.  The answers will be attached to their profile page.
 
@@ -350,14 +416,14 @@ POST /api/v1/survey_responses
 ### Parameters
 
 #### Survey Response Parameters
-* survey_id - id of the survey the person answered
-* person_id - id of the person who answered the survey
-* surveyor_id - id of the person who took the answers
-* question_responses - an array of objects representing the responses to individual questions that the surveyed person provided
+* `survey_id` - id of the survey the person answered
+* `person_id` - id of the person who answered the survey
+* `surveyor_id` - id of the person who took the answers
+* `question_responses` - an array of objects representing the responses to individual questions that the surveyed person provided
 
 #### Question Response Parameters
-* question_id - id of the question being answered
-* response - the response provided to the question. Response can be a string or id.  If the survey question being responded to is a multiple choice question, the response will be the choice with the id provided.  If the question is a yes/no question, then the response can be either "yes" or "no".  If the question is a text question, the response will be stored as the provided string.
+* `question_id` - id of the question being answered
+* `response` - the response provided to the question. Response can be a string or id.  If the survey question being responded to is a multiple choice question, the response will be the choice with the id provided.  If the question is a yes/no question, then the response can be either "yes" or "no".  If the question is a text question, the response will be stored as the provided string.
 
 ### Example
 
@@ -365,7 +431,7 @@ POST /api/v1/survey_responses
 POST https://foobar.nationbuilder.com/api/v1/survey_responses
 ```
 
-```
+```json
 {
   "survey_response": {
     "survey_id": 1,
