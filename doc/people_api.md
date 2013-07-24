@@ -11,8 +11,8 @@ GET /api/v1/people
 ```
 
 ### Parameters
-* page - result page number
-* per_page - number of results to return (max 100)
+* `page` - result page number
+* `per_page` - number of results to return (max 100)
 
 ### Example
 
@@ -84,7 +84,7 @@ GET /api/v1/people/:id
 
 ### Parameters
 
-* id_type - type of id to use, set to 'external' to show the person based on their external id
+* `id_type` - type of id to use, set to 'external' to show the person based on their external id
 
 ### Example
 
@@ -144,11 +144,11 @@ GET /api/v1/people/match
 ### Parameters
 
 Parameters act as matching criteria.
-* email - email address
-* first_name - first name
-* last_name - last name
-* phone - phone number
-* mobile - mobile number
+* `email` - email address
+* `first_name` - first name
+* `last_name` - last name
+* `phone` - phone number
+* `mobile` - mobile number
 
 ### Example
 
@@ -198,12 +198,12 @@ A maximum of 20 people will be returned.
 GET /api/v1/people/match
 
 ### Parameters
-* first_name - first name search parameter
-* last_name - last name search parameter
-* city - city of the primary address of people to match
-* state - state of the primary address of people to match
-* sex - sex of the people to match (optional, M or F)
-* birthdate - Date of birth of the people to match
+* `first_name` - first name search parameter
+* `last_name` - last name search parameter
+* `city` - city of the primary address of people to match
+* `state` - state of the primary address of people to match
+* `sex` - sex of the people to match (optional, M or F)
+* `birthdate` - Date of birth of the people to match
 
 ### Example
 
@@ -256,10 +256,10 @@ GET /api/v1/people/nearby
 ```
 
 ### Parameters
-* location - origin of search in the format latitude,longitude (required)
-* distance - the radius in miles for which to include results (optional, default 1 mile)
-* page - page number (default 1)
-* per_page - number of results to show per page (default 10, max 100)
+* `location` - origin of search in the format latitude,longitude (required)
+* `distance` - the radius in miles for which to include results (optional, default 1 mile)
+* `page` - page number (default 1)
+* `per_page` - number of results to show per page (default 10, max 100)
 
 ### Example
 
@@ -323,19 +323,19 @@ POST /api/v1/people
 
 ### Parameters
 
-* person - the json representation of the person to be created
-* external_id - string representing an external identifier for this person
-* first_name - the person's first name and middle names
-* last_name - the person's last name
-* email - the person's email address
-* phone - the person's home phone number
-* mobile - the person's cell phone number
-* birthdate - the person's birthdate
-* sex - the person's sex (M or F)
-* tags - the tags assigned to the person, as an array of strings
-* note - a note to attach to the person's profile
-* support_level - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
-* home_address - an address object representing the person's home
+* `person` - the json representation of the person to be created
+* `external_id` - string representing an external identifier for this person
+* `first_name` - the person's first name and middle names
+* `last_name` - the person's last name
+* `email` - the person's email address
+* `phone` - the person's home phone number
+* `mobile` - the person's cell phone number
+* `birthdate` - the person's birthdate
+* `sex` - the person's sex (M or F)
+* `tags` - the tags assigned to the person, as an array of strings
+* `note` - a note to attach to the person's profile
+* `support_level` - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
+* `home_address` - an address object representing the person's home
     * address1 - first address line
     * address2 - second address line
     * city - city
@@ -412,27 +412,27 @@ PUT /api/v1/people/:id
 
 ### Parameters
 
-* person - the json representation of the person to be created
-* external_id - string representing an external identifier for this person
-* first_name - the person's first name and middle names
-* last_name - the person's last name
-* email - the person's email address
-* phone - the person's home phone number
-* mobile - the person's cell phone number
-* birthdate - the person's birthdate
-* sex - the person's sex (M or F)
-* tags - the tags assigned to the person, as an array of strings
-* note - a note to attach to the person's profile
-* support_level - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
-* home_address - an address object representing the person's home
-    * address1 - first address line
-    * address2 - second address line
-    * city - city
-    * state - state
-    * zip - zip code
-    * country_code - country code
-    * lat - latitude (using WGS-84)
-    * lng - longitude (using WGS-84)
+* `person` - the json representation of the person to be created
+* `external_id` - string representing an external identifier for this person
+* `first_name` - the person's first name and middle names
+* `last_name` - the person's last name
+* `email` - the person's email address
+* `phone` - the person's home phone number
+* `mobile` - the person's cell phone number
+* `birthdate` - the person's birthdate
+* `sex` - the person's sex (M or F)
+* `tags` - the tags assigned to the person, as an array of strings
+* `note` - a note to attach to the person's profile
+* `support_level` - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
+* `home_address` - an address object representing the person's home
+    * `address1` - first address line
+    * `address2` - second address line
+    * `city` - city
+    * `state` - state
+    * `zip` - zip code
+    * `country_code` - country code
+    * `lat` - latitude (using WGS-84)
+    * `lng` - longitude (using WGS-84)
 
 ### Example
 
