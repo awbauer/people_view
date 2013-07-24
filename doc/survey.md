@@ -368,6 +368,8 @@ GET https://foobar.nationbuilder.com/api/v1/survey_responses
       "survey_id": 3,
       "person_id": 17738,
       "surveyor_id": null,
+      "created_at":"2013-07-24T08:36:50-07:00",
+      "updated_at":"2013-07-24T08:36:50-07:00",
       "question_responses": [
         {
           "id": 4,
@@ -381,6 +383,8 @@ GET https://foobar.nationbuilder.com/api/v1/survey_responses
       "survey_id": 1,
       "person_id": 1,
       "surveyor_id": null,
+      "created_at": "2013-07-24T08:38:08-07:00",
+      "updated_at": "2013-07-24T08:38:08-07:00",
       "question_responses": [
         {
           "id": 1,
