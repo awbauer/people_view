@@ -13,6 +13,8 @@ Note: The API is currently in invite-only alpha.  Changes can and will happen be
 
     Bring the admin to this page to request access to his nation's data:
 
+    Note: You can receive an access token to make requests on behalf of a person with permission level 'staffer', but that access token will not allow you to use the endpoints currently documented.  In the future endpoints may be individually segregated into permission level necessary.
+
     ```
     https://{slug}.nationbuilder.com/oauth/authorize?response_type=code&client_id=...&redirect_uri=...
     ```
