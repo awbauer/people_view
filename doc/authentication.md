@@ -6,6 +6,12 @@ In order to authenticate, you need to know the nation's slug in order to request
 
 ## Step 1. Authorization Request
 
+To begin you must get an access grant from a person in a nation with the highest permission level - 'admin'.
+
+Note: You can receive an access token to make requests on behalf of a person with permission level 'staffer', but that access token will not allow you to use the endpoints currently documented.  In the future endpoints may be individually segregated into permission level necessary.
+
+To do so, bring the admin to this page:
+
 ```
 https://foobar.nationbuilder.com/oauth/authorize?client_id=<client_id>&redirect_uri=<redirect_uri>
 ```
