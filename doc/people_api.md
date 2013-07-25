@@ -636,7 +636,7 @@ Should get you a response with 200 status and a body like this:
 
 Custom Fields
 -------------
-(Custom fields)[http://nationbuilder.com/custom_fields] can be set in the API, and will also be included in all person resource responses.
+[Custom fields](http://nationbuilder.com/custom_fields) can be set in the API, and will also be included in all person resource responses.
 
 ### Example
 If, for example, your nation happened to care about the height of a person, you could register a custom field and it would be visible on the API resource:
