@@ -28,7 +28,7 @@ You will receive a response with status 200 and this data:
   "total_pages": 1,
   "per_page": 2,
   "total": 1,
-  "data": [
+  "results": [
     {
       "id": 1,
       "slug": "survey",
