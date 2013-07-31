@@ -3,7 +3,7 @@ Webhooks
 
 Webhooks are a way to interact with an application by telling it to tell your services about certain events as they occur.
 
-For example, MailChimp offers webhook functionality, so you can perhaps have MailChimp to tell your servers when a person unsubscribes from your mailing list.
+You can use this, for example, to synchronize external representations of resources with events that happen in NationBuilder.
 
 This is the list of webhook events that NationBuilder supports:
 
