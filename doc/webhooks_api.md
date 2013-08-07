@@ -26,6 +26,8 @@ Returns a paginated list of the webhooks the nation has already registered with 
 GET https://foobar.nationbuilder.com/api/v1/webhooks
 ```
 
+Should get you a 200 response with body like this:
+
 ```json
 {
   "page": 1,
@@ -52,6 +54,8 @@ Show the details of an individual webhook, retrieved by its id
 GET https://foobar.nationbuilder.com/api/v1/webhooks/51f6d14dba6d1d31c0000003
 ```
 
+Should get you a 200 response with body like this:
+
 ```json
 {
   "webhook": {
@@ -69,19 +73,34 @@ Use this endpoint to register a webhook to fire on the occurance of a certain ev
 ### Attributes
 
 * `url` - the URL you want to have the webhook fire towards
-* `event` - the event you want to observe (mentioned at top of page)
+* `event` - the event you want to observe (listed at top of page)
 
 ### Example
+
+Issuing this request:
 
 ```
 POST https://foobar.nationbuilder.com/api/v1/webhooks
 ```
 
+With this body:
+
 ```json
 {
   "webhook": {
-    "id": "51f6d14dba6d1d31c0000003",
-    "url": "http://requestb.in/1hupspb1",
+    "url": "https://example.com/webhook_reception",
+    "event": "person_contact"
+  }
+}
+```
+
+Should create the webhook, respond with 200 and a body like this:
+
+```json
+{
+  "webhook": {
+    "id": "4ff7600b2cf0512fc7000002",
+    "url": "https://example.com/webhook_reception",
     "event": "person_contact"
   }
 }
