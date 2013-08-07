@@ -69,7 +69,7 @@ Use this endpoint to register a webhook to fire on the occurance of a certain ev
 ### Attributes
 
 * `url` - the URL you want to have the webhook fire towards
-* `event` - the event you want to observe (
+* `event` - the event you want to observe (mentioned at top of page)
 
 ### Example
 
