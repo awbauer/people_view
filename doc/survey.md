@@ -349,6 +349,8 @@ GET /api/v1/survey_responses
 ### Parameters
 * `page` - page number
 * `per_page` - number of results to show per-page
+* `start_time` - starting time for results, in [unix time](http://en.wikipedia.org/wiki/Unix_time)
+* `end_time` - ending time for results, also in unix time
 
 ### Example
 
