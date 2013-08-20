@@ -24,7 +24,7 @@ Nations with subnations can register webhooks for events that happen in their su
 Samples
 -------
 
-You can use a tool like (requestb.in)[http://requestb.in/] to record sample webhook requests, here are some premade samples:
+You can use a tool like [requestb.in](http://requestb.in/) to record sample webhook requests, here are some premade samples:
 
 ### Person Creation/Update
 
