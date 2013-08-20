@@ -89,4 +89,4 @@ Note: The API is currently in open beta, feel free to experiment with it.  Chang
       refresh_token=...
     ```
 
-Please direct API-related questions to NationBuilder VP of Community (Adriel Hampton)[ahampton@nationbuilder.com]
+Please direct API-related questions to NationBuilder VP of Community [Adriel Hampton](mailto:ahampton@nationbuilder.com)
