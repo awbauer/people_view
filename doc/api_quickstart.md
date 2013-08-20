@@ -89,4 +89,4 @@ Note: The API is currently in invite-only alpha.  Changes can and will happen be
       refresh_token=...
     ```
 
-Please direct API-related questions to byron@nationbuilder.com
+Please direct API-related questions to NationBuilder VP of Community (Adriel Hampton)[ahampton@nationbuilder.com]
