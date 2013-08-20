@@ -19,7 +19,7 @@ Note: The API is currently in invite-only alpha.  Changes can and will happen be
     https://{slug}.nationbuilder.com/oauth/authorize?response_type=code&client_id=...&redirect_uri=...
     ```
 
-    Where the client_id and redirect_uri are the values from your application's registration, and {slug} is the nation's slug
+    Where the client_id and redirect_uri are the values from your app's registration. Uid is the label for client_id used in the app's registration page. {slug} is the nation's slug.
 
     The user will be shown a form stating that your application has requested access to their nation.
 
