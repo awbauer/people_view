@@ -3,7 +3,7 @@ API Authentication Quick-Start Guide
 
 These are the steps necessary to start using the API:
 
-Note: The API is currently in invite-only alpha.  Changes can and will happen before version 1 is considered stable.  Furthermore, there is currently a significant [rate limit](http://nationbuilder.com/rate_limit_policy) in place.
+Note: The API is currently in open beta, feel free to experiment with it.  Changes can and will happen before version 1 is considered stable.  Furthermore, there is currently a significant [rate limit](http://nationbuilder.com/rate_limit_policy) in place.
 
 1. Register the application
 
