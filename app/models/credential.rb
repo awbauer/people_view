@@ -1,6 +1,6 @@
 class Credential < ActiveRecord::Base
   delegate :client, to: :nation
-  attr_accessible :nation, :token, :refresh_token, :token, :expires_at
+  attr_accessible :nation, :token, :refresh_token, :expires_at
   belongs_to :nation
 
   def request_access_token!(code, redirect_uri)
