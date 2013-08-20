@@ -7,7 +7,7 @@ Note: The API is currently in invite-only alpha.  Changes can and will happen be
 
 1. Register the application
 
-    Log into your nation, navigate to Settings > OAuth > New Application. Register your application with a name and redirect URI. After you register, make sure to record the UID and Secret codes provided here for future use.  For the time being applications are only available to their registered nation.
+    Log into your nation, navigate to Settings > Apps > New App. Register your application with a name and redirect URI. After you register, make sure to record the UID and Secret codes provided here for future use.  For the time being applications are only available to their registered nation.
 
 2. Ask a nation's administrator for access
 
