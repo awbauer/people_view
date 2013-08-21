@@ -58,4 +58,4 @@ IP-RateLimit-Remaining: 9
 IP-RateLimit-Reset: 1377020965
 ```
 
-Please contact NationBuilder VP of Community (Adriel Hampton)[ahampton@nationbuilder.com] if you run up against our rate limiting and wish to request more.
+Please contact NationBuilder VP of Community [Adriel Hampton](ahampton@nationbuilder.com) if you run up against our rate limiting and wish to request more.
