@@ -57,7 +57,7 @@ POST https://foobar.nationbuilder.com/api/v1/imports
 }
 ```
 
-To get the value to put in the "file" field, you can use a library such as (this for Ruby)[http://ruby-doc.org/stdlib-2.0/libdoc/base64/rdoc/Base64.html] or (this for Java)[http://download.java.net/jdk8/docs/api/java/util/Base64.html]
+To get the value to put in the "file" field, you can use a library such as [this for Ruby](http://ruby-doc.org/stdlib-2.0/libdoc/base64/rdoc/Base64.html) or [this for Java](http://download.java.net/jdk8/docs/api/java/util/Base64.html) On a most Unix machines, you can use `base64 -i my_spreadsheet.csv` to base64 encode a CSV file.
 
 Success on this endpoint will return a 200 response and a JSON response including a new "id" field and excluding the encoded file contents:
 
