@@ -75,13 +75,13 @@ There are also addresses available to edit:
 4. `registered_address`
 
 Each address has the following attributes:
-	* `address1`
-	* `address2`
-	* `address3`
-	* `city`
-	* `state`
-	* `county`
-	* `zip`
-	* `fips` - [FIPS county code](http://en.wikipedia.org/wiki/FIPS_county_code)
-	* `country`
-	* `country_code`
+* `address1`
+* `address2`
+* `address3`
+* `city`
+* `state`
+* `county`
+* `zip`
+* `fips` - [FIPS county code](http://en.wikipedia.org/wiki/FIPS_county_code)
+* `country`
+* `country_code`
