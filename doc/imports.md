@@ -12,7 +12,7 @@ POST /api/v1/imports
 
 ### Parameters
 
-* `type` - "voter_file" or "voting_history", depending on what fields you wish to import with the file
+* `type` - "[voter_file](https://github.com/3dna/people_view/blob/imports_documentation/doc/voter_file_import_fields.md)" or "[voting_history](https://github.com/3dna/people_view/blob/imports_documentation/doc/voting_history_import_fields.md)", depending on what fields you wish to import with the file
 * `file` - a RFC 4648 base 64 encoded version of the contents of the file you wish to import, using the alphabet defined as "URL and Filename safe Base64 Alphabet" by the standard
 
 Show Endpoint
@@ -40,7 +40,7 @@ first_name,last_name
 Byron,Anderson
 ```
 
-Available fields are available
+Attributes available are for the person directly, relation fields such as those for addresses and voting histories need to be prefixed by their relations name, for example: `mailing_address.address1` and `voting_history.vh00p1`
 
 You need to issue the following request:
 
