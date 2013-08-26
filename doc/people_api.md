@@ -204,6 +204,9 @@ GET /api/v1/people/search
 * `state` - state of the primary address of people to match
 * `sex` - sex of the people to match (optional, M or F)
 * `birthdate` - Date of birth of the people to match
+* `updated_since` - people updated since the given date
+* `with_mobile` - only people with mobile phone numbers
+* `custom_values` - match custom field values (takes a nested format, e.g. custom_values[my_field_slug]=abcd)
 
 ### Example
 
