@@ -195,7 +195,7 @@ Search Endpoint
 Search for people with non-unique traits of their first and last names, and their primary address city and state.
 A maximum of 20 people will be returned.
 
-GET /api/v1/people/match
+GET /api/v1/people/search
 
 ### Parameters
 * `first_name` - first name search parameter
