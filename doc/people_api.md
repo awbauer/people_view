@@ -335,7 +335,7 @@ POST /api/v1/people
 * `mobile` - the person's cell phone number
 * `birthdate` - the person's birthdate
 * `sex` - the person's sex (M or F)
-* `tags` - the tags assigned to the person, as an array of strings
+* `tags` - an array of strings for changes to tags on a person, see the [tag manipulation documentation](/tag_manipulation.md)
 * `note` - a note to attach to the person's profile
 * `support_level` - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
 * `home_address` - an address object representing the person's home
@@ -424,7 +424,7 @@ PUT /api/v1/people/:id
 * `mobile` - the person's cell phone number
 * `birthdate` - the person's birthdate
 * `sex` - the person's sex (M or F)
-* `tags` - the tags assigned to the person, as an array of strings
+* `tags` - an array of strings for changes to tags on a person, see the [tag manipulation documentation](/tag_manipulation.md)
 * `note` - a note to attach to the person's profile
 * `support_level` - level of support the person has for your nation, expressed as a number between 1 and 5, 1 being Strong support, 5 meaning strong opposition, and 3 meaning undecided.
 * `home_address` - an address object representing the person's home
