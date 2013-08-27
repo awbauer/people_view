@@ -216,7 +216,7 @@ Searching with a request body like this:
 {
   "first_name": "Byron",
   "city": "Beverly Hills",
-  "first_name": "CA"
+  "state": "CA"
 }
 ```
 
