@@ -28,7 +28,7 @@ GET https://foobar.nationbuilder.com/api/v1/tags
   "total": 3,
   "results": [
     {
-      "name": "doctor who"
+      "name": "doctor_who"
     },
     {
       "name": "alien"
@@ -54,10 +54,10 @@ GET /api/v1/tags/:tag/people
 
 ### Example
 
-To get the people who have been marked as 'doctor who', for example, you would issue this request:
+To get the people who have been marked as 'doctor_who', for example, you would issue this request:
 
 ```
-GET https://foobar.nationbuilder.com/api/v1/tags/doctor%20who/people
+GET https://foobar.nationbuilder.com/api/v1/tags/doctor_who/people
 ```
 
 And you will receive a response like this:
@@ -80,3 +80,100 @@ And you will receive a response like this:
   ]
 }
 ```
+
+Taggings Index
+--------------
+This returns a complete list of all the taggings for a given person.
+
+```
+GET /api/v1/people/:id/taggings
+```
+
+### Parameters
+None
+
+### Example
+
+To get the taggings for person with ID 10010, for example, you would issue this request:
+
+```
+GET https://foobar.nationbuilder.com/api/v1/people/69974/taggings
+```
+
+And you will receive a response code of 200 and body like this:
+
+```json
+{
+  "taggings": [
+    {
+      "person_id": 69974,
+      "tag": "writer"
+    },
+    {
+      "person_id": 69974,
+      "tag": "gardener"
+    },
+    {
+      "person_id": 69974,
+      "tag": "camper"
+    }
+  ]
+}
+```
+
+Person Tag Endpoint
+-------------------
+This tags a person with a taggings.
+
+```
+PUT /api/v1/people/:id/taggings
+```
+
+### Parameters
+* `tagging` - the details of the tagging, with attribute:
+* `tag` - the tag you wish to add to the person
+
+### Example
+
+To add the tagging "bird_watcher" to the person with ID 69974, for example, you issue this request:
+
+```
+PUT https://foobar.nationbuilder.com/api/v1/people/69974/taggings
+```
+
+with this body
+```json
+{
+  "tagging": {
+    "tag": "bird_watcher"
+  }
+}
+```
+
+And you will receive a response code of 200 and a body like this:
+```json
+{
+  "tagging": {
+    "person_id": 69974,
+    "tag": "bird_watcher"
+  }
+}
+```
+
+Tag Removal Endpoint
+--------------------
+This removes a tag from a person.
+
+```
+DELETE /api/v1/people/:id/taggings/:tag
+```
+
+
+### Example
+To remove the tagging "bird_watcher" from the person with ID 69974, for example, you issue this request:
+
+```
+DELETE https://foobar.nationbuilder.com/api/v1/people/69974/taggings/bird_watcher
+```
+
+And you will receive a response code of 204.
