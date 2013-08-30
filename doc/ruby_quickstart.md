@@ -38,4 +38,10 @@ require 'json'
 hash = JSON.parse(response.body)
 ```
 
+To refresh the current token, do this:
+
+```ruby
+token.refresh!
+```
+
 Visit [oauth2 gem](http://rdoc.info/github/intridea/oauth2) for more information
