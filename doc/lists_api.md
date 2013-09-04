@@ -32,21 +32,21 @@ Should get you a 200 response with results like this:
       "name": "New Voters",
       "slug": "newvoters",
       "author_id": 1,
-      "sort_order": "0"
+      "sort_order": "oldest_first"
     },
     {
       "id": 11,
       "name": "Famous Minnesotans",
       "slug": "minnesotans",
       "author_id": 15236,
-      "sort_order": "3"
+      "sort_order": "oldest_first"
     },
     {
       "id": 9,
       "name": "Donors",
       "slug": "donors",
       "author_id": 15236,
-      "sort_order": "0"
+      "sort_order": "oldest_first"
     }
   ]
 }
