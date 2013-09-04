@@ -32,21 +32,24 @@ Should get you a 200 response with results like this:
       "name": "New Voters",
       "slug": "newvoters",
       "author_id": 1,
-      "sort_order": "oldest_first"
+      "sort_order": "oldest_first",
+      "count": 5
     },
     {
       "id": 11,
       "name": "Famous Minnesotans",
       "slug": "minnesotans",
       "author_id": 15236,
-      "sort_order": "oldest_first"
+      "sort_order": "oldest_first",
+      "count": 21
     },
     {
       "id": 9,
       "name": "Donors",
       "slug": "donors",
       "author_id": 15236,
-      "sort_order": "oldest_first"
+      "sort_order": "oldest_first",
+      "count": 101
     }
   ]
 }
@@ -136,7 +139,8 @@ Should make an empty list, return status code 200, and have a response body like
     "name": "My List",
     "slug": "mylist",
     "author_id": 17736,
-    "sort_order": "oldest_first"
+    "sort_order": "oldest_first",
+    "count": 0
   }
 }
 ```
