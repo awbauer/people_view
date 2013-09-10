@@ -30,8 +30,8 @@ Python Quickstart API Guide
 ```
 
 6. Get API data using session
-``` python
-  response = session.get("https://"+nation_slug+".nationbuilder.com/api/v1/people", 
-                          params={'format': 'json'}, 
+```python
+  response = session.get("https://"+nation_slug+".nationbuilder.com/api/v1/people",
+                          params={'format': 'json'},
                           headers={'content-type': 'application/json'})
 ```
