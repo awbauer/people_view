@@ -10,7 +10,7 @@ To install the library first download the archive: [https://github.com/adoy/PHP-
 
 Include the following files from the library in your script:
 
-```
+```php
 <?php
 require('path/to/client.php');
 require('path/to/GrantType/IGrantType.php');
@@ -20,7 +20,7 @@ require('path/to/GrantType/AuthorizationCode.php');
 
 Create a client with your client id and secret:
 
-```
+```php
 <?php
 $clientId = 'yourClientId';
 $clientSecret = 'yourClientSecret';
@@ -30,7 +30,7 @@ $client = new OAuth2\Client($clientId, $clientSecret);
 
 Now use the client to generate the authorization url.
 
-```
+```php
 <?php
 $redirectUrl    = 'http://www.myapp.com/oauth_callback';
 $authorizeUrl   = 'https://foobar.nationbuilder.com/oauth/authorize';
@@ -53,7 +53,7 @@ http://foobar.nationbuilder.com/?code=123456abcdef
 
 Use the code to generate an access token:
 
-```
+```php
 <?php
 $code = '123456abcdef';
 
@@ -67,7 +67,7 @@ $token = $response['result']['access_token'];
 
 Set the client's token
 
-```
+```php
 <?php
 $client->setAccessToken($token);
 
@@ -79,7 +79,7 @@ $client->setAccessToken($newTokenResponse['result]['access_token']);
 
 The client is now ready to make resource requests
 
-```
+```php
 <?php
 $baseApiUrl = 'https://foobar.nationbuilder.com';
 $client->setAccessToken($token);
