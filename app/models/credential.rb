@@ -10,26 +10,16 @@ class Credential < ActiveRecord::Base
   end
 
   def access_token
-    return @access_token if @access_token
-    @access_token = expired? ? refresh! : current_access_token
-  end
-
-  def expired?
-    expires_at < Time.zone.now
-  end
-
-  def refresh!
-    new_token = current_access_token.refresh!
-    update_from_token(new_token)
-    new_token
+    @access_token ||= build_access_token
   end
 
   private
+
   def update_from_token(token)
-    update_attributes!(token: token.token, refresh_token: token.refresh_token, expires_at: Time.at(token.expires_at))
+    update_attributes!(token: token.token, refresh_token: token.refresh_token)
   end
 
-  def current_access_token
+  def build_access_token
     OAuth2::AccessToken.new(client, token, refresh_token: refresh_token)
   end
 end
