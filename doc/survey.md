@@ -121,7 +121,7 @@ POST /api/v1/sites/:site_slug/pages/surveys
     * `external_id` - (optional) an external identification string for this question
     * `type` - (required) the type of response the question expects (`multiple` for multiple choice, `yes_no` for a yes/no question, `text` for a free response question)
     * `status` - (required) `drafted` or `published`
-    * `slug` - (required) url portion to represent this question
+    * `slug` - (required) url portion to represent this question, this must be unique across all your nation's survey questions
     * `choices` - Choices available for a multiple choice question
         * `name` - (required) the string for the choice
         * `feedback` - feedback to show to the user if this choice is selected
