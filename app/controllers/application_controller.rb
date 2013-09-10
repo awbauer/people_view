@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
-  #rescue_from OAuth2::Error, :with => :reset_token
-
   private
 
   def deauthorize!
@@ -14,15 +12,6 @@ class ApplicationController < ActionController::Base
     session[:current_nation] = nil
     session[:credential_id] = nil
   end
-
-  #def reset_token(error)
-    #if error.response.status == 401
-      #deauthorize!
-      #redirect_to root_path
-    #else
-      #raise error
-    #end
-  #end
 
   def token
     credential.access_token
