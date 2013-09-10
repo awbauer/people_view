@@ -1,6 +1,7 @@
 <% if logged_in? %>
   <%= nav_link "People", people_path, name: :people %>
   <%= nav_link "Surveys", surveys_path, name: :surveys %>
+  <%= nav_link "Events", events_path, name: :events %>
   <%= nav_link "API Console", api_request_path, name: :api_console %>
   <%= nav_link "About", about_path, name: :about %>
 

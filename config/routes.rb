@@ -9,6 +9,7 @@ NbuildApiConsumer::Application.routes.draw do
   post "/api_request", to: "pages#api_request"
 
   resources :nations
+  resources :events
   resources :surveys do
     member do
       get :export
