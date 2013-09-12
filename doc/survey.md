@@ -444,7 +444,7 @@ POST https://foobar.nationbuilder.com/api/v1/survey_responses
     "survey_id": 1,
     "person_id": 19,
     "surveyor_id": 19247,
-    question_responses: [{
+    "question_responses": [{
       "question_id": 12093814098,
       "response": 3
     }, {
@@ -467,7 +467,7 @@ The survey response will be made, and you should receive a response with status 
     "survey_id": 1,
     "person_id": 19,
     "surveyor_id": 19247,
-    question_responses: [{
+    "question_responses": [{
       "id": 12497,
       "question_id": 12093814098,
       "response": 3
