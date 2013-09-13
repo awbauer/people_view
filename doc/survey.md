@@ -370,7 +370,6 @@ GET https://foobar.nationbuilder.com/api/v1/survey_responses
       "id": 2,
       "survey_id": 3,
       "person_id": 17738,
-      "surveyor_id": null,
       "created_at":"2013-07-24T08:36:50-07:00",
       "updated_at":"2013-07-24T08:36:50-07:00",
       "question_responses": [
@@ -385,7 +384,6 @@ GET https://foobar.nationbuilder.com/api/v1/survey_responses
       "id": 1,
       "survey_id": 1,
       "person_id": 1,
-      "surveyor_id": null,
       "created_at": "2013-07-24T08:38:08-07:00",
       "updated_at": "2013-07-24T08:38:08-07:00",
       "question_responses": [
@@ -425,7 +423,6 @@ POST /api/v1/survey_responses
 #### Survey Response Parameters
 * `survey_id` - id of the survey the person answered
 * `person_id` - id of the person who answered the survey
-* `surveyor_id` - id of the person who took the answers
 * `question_responses` - an array of objects representing the responses to individual questions that the surveyed person provided
 
 #### Question Response Parameters
@@ -443,7 +440,6 @@ POST https://foobar.nationbuilder.com/api/v1/survey_responses
   "survey_response": {
     "survey_id": 1,
     "person_id": 19,
-    "surveyor_id": 19247,
     "question_responses": [{
       "question_id": 12093814098,
       "response": 3
@@ -466,7 +462,6 @@ The survey response will be made, and you should receive a response with status 
     "id": 3014",
     "survey_id": 1,
     "person_id": 19,
-    "surveyor_id": 19247,
     "question_responses": [{
       "id": 12497,
       "question_id": 12093814098,
