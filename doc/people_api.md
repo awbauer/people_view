@@ -410,7 +410,6 @@ With attached body content like this:
     "first_name": "John",
     "last_name": "Doe",
     "email": "johndoe@gmail.com",
-    "tags": ["tag1", "tag2"],
     "home_address": {
       "address1": "123 Fake St",
       "city": "Lakewood",
@@ -434,7 +433,6 @@ You will receive a response of status 200, with response body like this:
     "mobile": null,
     "sex": null,
     "birthdate": null,
-    "tags": ["tag1", "tag2"],
     "note": null,
     "support_level": null,
     "primary_address": null,
