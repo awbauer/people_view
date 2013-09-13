@@ -1,8 +1,10 @@
 People API
 ==========
 
-Person Resource
----------------
+Resources
+---------
+
+### Person Resource
 
 * `external_id` - string representing an external identifier for this person
 * `first_name` - the person's first name and middle names
@@ -52,8 +54,8 @@ Person Resource
 * `fire_district` - district field
 * `precinct_id` - id of the precinct to attach to this person, as found in the precincts API
 
-Address Resource
-----------------
+### Address Resource
+
 * `address1` - first address line
 * `address2` - second address line
 * `city` - city
