@@ -110,6 +110,7 @@ POST /api/v1/sites/:site_slug/pages/surveys
 
 * `slug` - the path at which to place the page.  Must be unique, and there are some restrictions for namespace collisions. (Optional- will be computed from name if not present)
 * `status` - published or drafted, depending on whether you want to page to be available immediately (required)
+* `tags` - an array of tags to add to a person who responds to this survey (optional)
 * `author_id` - the NationBuilder id author of the blog (optional)
 * `name` - internal name, how the page will be referred to in lists in the control panel (required)
 * `title` - Title of the page, shows up as tab name, for example (optional, defaults to the name)
@@ -119,12 +120,15 @@ POST /api/v1/sites/:site_slug/pages/surveys
 * `questions` - array of question resources that represent the questions to ask when a person takes the survey
     * `prompt` - (required) the question string
     * `external_id` - (optional) an external identification string for this question
+    * `tags` - (optional) array of tags to add to people who respond (in the case of yes/no questions, to add to those that answer 'yes')
+    * `no_tags` - (optional) array of tags to add to people who respond "no" if this is a yes/no question
     * `type` - (required) the type of response the question expects (`multiple` for multiple choice, `yes_no` for a yes/no question, `text` for a free response question)
     * `status` - (required) `drafted` or `published`
     * `slug` - (required) url portion to represent this question, this must be unique across all your nation's survey questions
     * `choices` - Choices available for a multiple choice question
         * `name` - (required) the string for the choice
-        * `feedback` - feedback to show to the user if this choice is selected
+        * `tags` - (optional) array of tags to add to a person who chooses this option
+        * `feedback` - (optional) feedback to show to the user if this choice is selected
 
 ### Example
 
