@@ -58,12 +58,10 @@ Note: The API is currently in open beta, feel free to experiment with it.  Chang
     {
       "access_token": "a44bdfe7972f7a83f5dc485cd3a7c7d2d09b0c60828ed24657c0b61e186ed93a",
       "token_type": "bearer",
-      "expires_in": 7200,
-      "refresh_token": "ea1d2e5dff2ab9977c4f8b41881b35ba613b644862a0101b244729359245c387",
       "scope":""
     }
     ```
-        Record the access token and refresh token from the response you receive to this request
+        Record the access token from the response you receive to this request
 
 5. Use the access token to get data
 
@@ -74,19 +72,5 @@ Note: The API is currently in open beta, feel free to experiment with it.  Chang
     ```
 
     Note that the API speaks only in javascript object notation (JSON), and that 406 response code means that you need to include the Content-Type and Accept headers of your request to "application/json".
-
-6. Refresh access token as needed
-
-    Your access token is transient, with a time to live given in the response to your access token exchange request as "expires_in".  When the access token expires, resource requests on the nation's behalf will be denied with HTTP code 403.  To continue accessing the resources, you need to exchange the previously provided refresh token for a new access token.
-    You can accomplish this by issuing this request:
-
-    ```
-    POST https://foobar.nationbuilder.com/oauth/token
-      client_id=...
-      redirect_uri=...
-      grant_type=refresh_token
-      client_secret=...
-      refresh_token=...
-    ```
 
 Please direct API-related questions to NationBuilder VP of Community [Adriel Hampton](mailto:ahampton@nationbuilder.com)
