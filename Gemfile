@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '6.0.3.5'
 gem 'oauth2'
 gem 'pry'
 gem 'pry-remote'
@@ -22,5 +22,5 @@ gem "bootstrap-sass", "~> 2.0.3"
 gem "formtastic", "~> 2.1"
 gem "formtastic-plus-bootstrap"
 gem "coderay"
-gem "carrierwave"
+gem "carrierwave", ">= 1.3.2"
 gem 'ace-rails-ap', :git => "git://github.com/codykrieger/ace-rails-ap.git"
