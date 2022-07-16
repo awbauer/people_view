@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '5.2.8.1'
 gem 'oauth2'
 gem 'pry'
 gem 'pry-remote'
