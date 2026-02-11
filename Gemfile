@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'oauth2'
+gem 'oauth2', '>= 1.4.8'
 gem 'pry'
 gem 'pry-remote'
 gem 'will_paginate'
